@@ -1,82 +1,161 @@
-/* eslint-disable no-undef */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
-import style from './Login.module.css';
 
+import React, { useEffect, useState } from 'react'
+import './Login.css';
+import { FaLinkedinIn, FaGoogle, FaTwitter, FaFacebookF, FaLock, FaUserAlt } from "react-icons/fa";
+import axios from 'axios';
+import { API_URLS } from '../../../API/Api';
+import { useNavigate } from 'react-router-dom';
+
+const { LoginApi } = API_URLS
 const Login = () => {
+    var navigate = useNavigate()
 
-    const loginText = document.querySelector(".title-text .login");
-    const loginForm = document.querySelector("form.login");
-    const loginBtn = document.querySelector("label.login");
-    const signupBtn = document.querySelector("label.signup");
-    const signupLink = document.querySelector("form .signup-link a");
-    signupBtn.onclick = (() => {
-        loginForm.style.marginLeft = "-50%";
-        loginText.style.marginLeft = "-50%";
-    });
-    loginBtn.onclick = (() => {
-        loginForm.style.marginLeft = "0%";
-        loginText.style.marginLeft = "0%";
-    });
-    signupLink.onclick = (() => {
-        signupBtn.click();
-        return false;
-    });
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    // const [role, setRole] = useState("")
+    const [phone, setPhone] = useState("")
+
+
+    const singUp = async () => {
+        await axios.post("http://192.168.0.108:3000/User/Insert", { name, email, password, phone })
+            .then(res => {
+                const data = res.data;
+                console.log(data);
+                if (data._id != "") {
+                    // navigate("/")
+                    localStorage.setItem("userId", data._id);
+                    localStorage.setItem("Username", data.name);
+                    navigate("/dashboard");
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    const signIn = async () => {
+
+    }
+
+
+
+
+    useEffect(() => {
+        const sign_in_btn = document.querySelector("#sign-in-btn");
+        const sign_up_btn = document.querySelector("#sign-up-btn");
+        const container = document.querySelector(".container");
+
+        sign_up_btn.addEventListener("click", () => {
+            container.classList.add("sign-up-mode");
+        });
+
+        sign_in_btn.addEventListener("click", () => {
+            container.classList.remove("sign-up-mode");
+        });
+    }, [])
 
     return (
         <>
-            <h1>harsh</h1>
-            <div className={ style.wrapper }>
-                <div className={ style.title - text }>
-                    <div className={ style.title - login }>
-                        Login Form</div>
-                    <div className={ style.title - signup }>
-                        Signup Form</div>
+            <div className="container">
+                <div className="forms-container">
+                    <div className="signin-signup">
+                        <form action="#" className="sign-in-form">
+                            <h2 className="title">Sign in</h2>
+                            <div className="input-field">
+                                {/* <FaUserAlt /> */}
+                                <input type="text" placeholder="Username" name="name" value={name} onChange={(e) => setName(e.target.value)} />
+                            </div>
+                            <div className="input-field">
+                                {/* <FaLock /> */}
+                                <input type="password" placeholder="Password" />
+                            </div>
+                            <button className="btn solid" onClick={signIn} >Sign IN</button>
+
+                            <p className="social-text">Or Sign in with social platforms</p>
+                            <div className="social-media">
+                                <a href="#" className="social-icon">
+                                    <FaFacebookF />
+                                </a>
+                                <a href="#" className="social-icon">
+                                    <FaTwitter />
+                                </a>
+                                <a href="#" className="social-icon">
+                                    <FaGoogle />
+                                </a>
+                                <a href="#" className="social-icon">
+                                    <FaLinkedinIn />
+                                </a>
+                            </div>
+                        </form>
+
+
+
+                        <form className="sign-up-form">
+                            <h2 className="title">Sign up</h2>
+                            <div className="input-field">
+                                <i className="fas fa-user" />
+                                <input type="text" placeholder="Username" name="name" value={name} onChange={(e) => setName(e.target.value)} />
+                            </div>
+                            <div className="input-field">
+                                <i className="fas fa-envelope" />
+                                <input type="email" placeholder="Email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            </div>
+                            <div className="input-field">
+                                <i className="fas fa-lock" />
+                                <input type="password" placeholder="Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            </div>
+                            {/* <div className="input-field">
+                                <i className="fas fa-lock" />
+                                <input type="text" placeholder="Role" name="role" value={role} onChange={(e) => setRole(e.target.value)} />
+                            </div> */}
+                            <div className="input-field">
+                                <i className="fas fa-lock" />
+                                <input type="number" placeholder="Phone" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                            </div>
+                            <button type="button" className="btn solid" onClick={singUp} >Sign Up</button>
+                            <p className="social-text">Or Sign up with social platforms</p>
+                            <div className="social-media">
+                                <a href="#" className="social-icon">
+                                    <FaFacebookF />
+                                </a>
+                                <a href="#" className="social-icon">
+                                    <FaTwitter />
+                                </a>
+                                <a href="#" className="social-icon">
+                                    <FaGoogle />
+                                </a>
+                                <a href="#" className="social-icon">
+                                    <FaLinkedinIn />
+                                </a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div className={ style.form - container }>
-                    <div className={ style.slide - controls }>
-                        <input type="radio" name="slide" id="login" checked />
-                        <input type="radio" name="slide" id="signup" />
-                        <label for="login" className="slide login">Login</label>
-                        <label for="signup" className={ style.slide - ignup }>Signup</label>
-                        <div className={ style.slider - tab }>
+                <div className="panels-container">
+                    <div className="panel left-panel">
+                        <div className="content">
+                            <h3>New here ?</h3>
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+                                ex ratione. Aliquid!
+                            </p>
+                            <button className="btn transparent" id="sign-up-btn" >
+                                Sign up
+                            </button>
                         </div>
                     </div>
-                    <div className={ style.form - inner }>
-                        <form action="#" className={ style.login }>
-                            <div className={ style.field }>
-                                <input type="text" placeholder="Email Address" required />
-                            </div>
-                            <div className={ style.field }>
-                                <input type="password" placeholder="Password" required />
-                            </div>
-                            <div className={ style.pass - link }>
-                                <a>Forgot password?</a>
-                            </div>
-                            <div className={ style.field - btn }>
-                                <div className={ style.btn - layer }>
-                                </div>
-                                <input type="submit" value="Login" />
-                            </div>
-                            <div className={ style.signup - link }>
-                                Not a member? <a href="">Signup now</a></div>
-                        </form>
-                        <form action="#" className={ style.signup }>
-                            <div className={ style.field }>
-                                <input type="text" placeholder="Email Address" required />
-                            </div>
-                            <div className={ style.field }>
-                                <input type="password" placeholder="Password" required />
-                            </div>
-                            <div className={ style.field }>
-                                <input type="password" placeholder="Confirm password" required />
-                            </div>
-                            <div className={ style.field - btn }>
-                                <div className={ style.btn - layer }>
-                                </div>
-                                <input type="submit" value="Signup" />
-                            </div>
-                        </form>
+                    <div className="panel right-panel">
+                        <div className="content">
+                            <h3>Already a signup?</h3>
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+                                ex ratione. Aliquid!
+                            </p>
+                            <button className="btn transparent mt-2" id="sign-in-btn">
+                                Sign in
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

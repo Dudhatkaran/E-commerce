@@ -1,23 +1,11 @@
-const express = require('express');
-const Category = require('../Models/userSchema');
+const express = require("express");
 const router = express.Router();
+const userController = require("../Controller/User");
+const { validatation4login, validatation4signup, validatation4updateuser } = require("../utils/joi.validate");
 
-router.post('/addcategory', async (req, res, next) => {
-    try {
-        const data = await Category.create(req.body);
-        res.status(201).send(data);
 
-    } catch (error) {
-        res.status(400).send(error);
-    }
-})
-router.get('/getallcategory', async (req, res, next) => {
-    try {
-        const data = await Category.find();
-        res.status(200).send(data);
+router.post("/Insert", validatation4signup, userController.createUser);
+router.post("/Login", validatation4login, userController.userLogin);
+router.post("/Update", validatation4updateuser, userController.userUpdate);
 
-    } catch (error) {
-        res.status(400).send(error);
-    }
-})
 module.exports = router;

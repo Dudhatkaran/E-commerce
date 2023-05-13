@@ -1,0 +1,20 @@
+{
+	"USER_NOT_FOUND": "User not found.",
+	"SIGNUP_SUCCESS": "Sign up successfully.",
+	"LOGIN_SUCCESS": "Log in successfully.",
+	"EMAIL_EXISTS": "User already exists.",
+	"ROLE_NOT_FOUND": "Role not found.",
+	"NOT_MATCH": "Username or Password are not match.",
+	"UPDATE_SUCCESSFULLY": "User updated successfully.",
+	"DELETE_SUCCESS": "User deleted successfully.",
+	"INVALID_TOKEN": "Inavlid token.",
+	"INVALID_TOKEN_TYPE": "Inavlid token type.",
+
+	"GENERAL": "Something went wrong!!, Please try again.",
+	"NOT_AUTHORIZED": "You are not authorized.",
+	"PASSWORD_CHANGE": "Password changed successfully.",
+	"OLD_PASSWORD_WRONG": "You entered incorrect old password.",
+	
+	"USERDATA_ADD": "User Data Successfully.",
+	"EMAIL_SEND": "Email sent successfully."
+}
