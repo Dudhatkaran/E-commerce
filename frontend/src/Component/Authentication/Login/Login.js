@@ -23,10 +23,7 @@ const Login = () => {
                 const data = res.data;
                 console.log(data);
                 if (data._id != "") {
-                    // navigate("/")
-                    localStorage.setItem("userId", data._id);
-                    localStorage.setItem("Username", data.name);
-                    navigate("/dashboard");
+                    navigate("/Login");
                 }
             })
             .catch(function (error) {
@@ -35,10 +32,21 @@ const Login = () => {
     }
 
     const signIn = async () => {
-
+        await axios.post("http://192.168.0.108:3000/User/Login", { name, password })
+            .then(res => {
+                const data = res.data.data;
+                console.log(data);
+                if (data._id != "") {
+                    // navigate("/")
+                    localStorage.setItem("USER_ID", data._id);
+                    localStorage.setItem("USER_NAME", data.name);
+                    navigate("/");
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
-
-
 
 
     useEffect(() => {
@@ -63,14 +71,14 @@ const Login = () => {
                         <form action="#" className="sign-in-form">
                             <h2 className="title">Sign in</h2>
                             <div className="input-field">
-                                {/* <FaUserAlt /> */}
-                                <input type="text" placeholder="Username" name="name" value={name} onChange={(e) => setName(e.target.value)} />
+                                <FaUserAlt />
+                                <input type="text" placeholder="Name" name="name" value={name} onChange={(e) => setName(e.target.value)} />
                             </div>
                             <div className="input-field">
-                                {/* <FaLock /> */}
-                                <input type="password" placeholder="Password" />
+                                <FaLock />
+                                <input type="password" placeholder="Password" name="email" value={password} onChange={(e) => setPassword(e.target.value)} />
                             </div>
-                            <button className="btn solid" onClick={signIn} >Sign IN</button>
+                            <button type="button" className="btn solid" onClick={signIn} >Sign In</button>
 
                             <p className="social-text">Or Sign in with social platforms</p>
                             <div className="social-media">
