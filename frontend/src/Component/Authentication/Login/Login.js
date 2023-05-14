@@ -23,6 +23,10 @@ const Login = () => {
                 const data = res.data;
                 console.log(data);
                 if (data._id != "") {
+                    setName("")
+                    setEmail("")
+                    setPassword("")
+                    setPhone("")
                     navigate("/Login");
                 }
             })
