@@ -131,7 +131,7 @@ form.sign-in-form {
     border: none;
     outline: none;
     height: 49px;
-    border-radius: 49px;
+    border-radius: 10px;
     color: #fff;
     text-transform: uppercase;
     font-weight: 600;

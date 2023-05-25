@@ -12,6 +12,7 @@ import { Col, Row } from 'react-bootstrap';
 import Input from '../../InputField/Input';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Radiobutton from '../../Radiobutton/Radiobutton';
 
 const { LoginApi } = API_URLS
 const Login = () => {
@@ -22,6 +23,8 @@ const Login = () => {
     const [password, setPassword] = useState("")
     // const [role, setRole] = useState("")
     const [phone, setPhone] = useState("")
+    const [admin, setAdmin] = useState("")
+    const [user, setUser] = useState("User")
 
 
     const singUp = async () => {
@@ -39,7 +42,7 @@ const Login = () => {
                 }
             })
             .catch(function (error) {
-                console.log(error);
+                toast.error(error.message);
             });
     }
 
@@ -56,7 +59,6 @@ const Login = () => {
                 }
             })
             .catch(function (error) {
-                console.log(error);
                 toast.error(error.message);
             });
     }
@@ -98,6 +100,12 @@ const Login = () => {
 
                         <form className="sign-up-form">
                             <h2 className="title">Sign up</h2>
+                            <Row>
+                                <Col>
+                                    <Radiobutton label="Admin" value="Admin" onChange={e => setAdmin(e.target.value)} />
+                                    <Radiobutton label="User" value="User" onChange={e => setUser(e.target.value)} />
+                                </Col>
+                            </Row>
                             <Row className='justify-content-center align-items-center'>
                                 <Col xl="6">
                                     <Input label="Username" value={name} onChange={(e) => setName(e.target.value)} />
