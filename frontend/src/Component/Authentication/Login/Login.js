@@ -5,6 +5,13 @@ import { FaLinkedinIn, FaGoogle, FaTwitter, FaFacebookF, FaLock, FaUserAlt } fro
 import axios from 'axios';
 import { API_URLS } from '../../../API/Api';
 import { useNavigate } from 'react-router-dom';
+import intlTelInput from 'intl-tel-input';
+import IntlTelInput from 'react-intl-tel-input';
+import 'react-intl-tel-input/dist/main.css';
+import { Col, Row } from 'react-bootstrap';
+import Input from '../../InputField/Input';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const { LoginApi } = API_URLS
 const Login = () => {
@@ -21,8 +28,9 @@ const Login = () => {
         await axios.post("http://192.168.0.108:3000/User/Insert", { name, email, password, phone })
             .then(res => {
                 const data = res.data;
-                console.log(data);
-                if (data._id != "") {
+                console.log(data.success);
+                if (data._id != "" && data.success === true) {
+                    toast.success(data.message);
                     setName("")
                     setEmail("")
                     setPassword("")
@@ -39,9 +47,9 @@ const Login = () => {
         await axios.post("http://192.168.0.108:3000/User/Login", { name, password })
             .then(res => {
                 const data = res.data.data;
-                console.log(data);
-                if (data._id != "") {
-                    // navigate("/")
+                console.log(data.success);
+                if (data._id != "" && data.success === true) {
+                    toast.success(data.message);
                     localStorage.setItem("USER_ID", data._id);
                     localStorage.setItem("USER_NAME", data.name);
                     navigate("/");
@@ -49,6 +57,7 @@ const Login = () => {
             })
             .catch(function (error) {
                 console.log(error);
+                toast.error(error.message);
             });
     }
 
@@ -69,78 +78,54 @@ const Login = () => {
 
     return (
         <>
-            <div className="container">
+            <div className="container" id='Login'>
                 <div className="forms-container">
                     <div className="signin-signup">
                         <form action="#" className="sign-in-form">
                             <h2 className="title">Sign in</h2>
-                            <div className="input-field">
-                                <FaUserAlt />
-                                <input type="text" placeholder="Name" name="name" value={name} onChange={(e) => setName(e.target.value)} />
-                            </div>
-                            <div className="input-field">
-                                <FaLock />
-                                <input type="password" placeholder="Password" name="email" value={password} onChange={(e) => setPassword(e.target.value)} />
-                            </div>
+                            <Row className='justify-content-center align-items-center'>
+                                <Col xl="6">
+                                    <Input label="Username" value={name} onChange={(e) => setName(e.target.value)} />
+                                </Col>
+                                <Col>
+                                    <Input label="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                                </Col>
+                            </Row>
                             <button type="button" className="btn solid" onClick={signIn} >Sign In</button>
-
-                            <p className="social-text">Or Sign in with social platforms</p>
-                            <div className="social-media">
-                                <a href="#" className="social-icon">
-                                    <FaFacebookF />
-                                </a>
-                                <a href="#" className="social-icon">
-                                    <FaTwitter />
-                                </a>
-                                <a href="#" className="social-icon">
-                                    <FaGoogle />
-                                </a>
-                                <a href="#" className="social-icon">
-                                    <FaLinkedinIn />
-                                </a>
-                            </div>
                         </form>
 
 
 
                         <form className="sign-up-form">
                             <h2 className="title">Sign up</h2>
-                            <div className="input-field">
-                                <i className="fas fa-user" />
-                                <input type="text" placeholder="Username" name="name" value={name} onChange={(e) => setName(e.target.value)} />
-                            </div>
-                            <div className="input-field">
-                                <i className="fas fa-envelope" />
-                                <input type="email" placeholder="Email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                            </div>
-                            <div className="input-field">
-                                <i className="fas fa-lock" />
-                                <input type="password" placeholder="Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                            </div>
-                            {/* <div className="input-field">
-                                <i className="fas fa-lock" />
-                                <input type="text" placeholder="Role" name="role" value={role} onChange={(e) => setRole(e.target.value)} />
-                            </div> */}
-                            <div className="input-field">
-                                <i className="fas fa-lock" />
-                                <input type="number" placeholder="Phone" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
-                            </div>
-                            <button type="button" className="btn solid" onClick={singUp} >Sign Up</button>
-                            <p className="social-text">Or Sign up with social platforms</p>
-                            <div className="social-media">
-                                <a href="#" className="social-icon">
-                                    <FaFacebookF />
-                                </a>
-                                <a href="#" className="social-icon">
-                                    <FaTwitter />
-                                </a>
-                                <a href="#" className="social-icon">
-                                    <FaGoogle />
-                                </a>
-                                <a href="#" className="social-icon">
-                                    <FaLinkedinIn />
-                                </a>
-                            </div>
+                            <Row className='justify-content-center align-items-center'>
+                                <Col xl="6">
+                                    <Input label="Username" value={name} onChange={(e) => setName(e.target.value)} />
+                                </Col>
+                                <Col>
+                                    <Input label="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                </Col>
+                                <Col>
+                                    <Input label="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                                </Col>
+                                <Col>
+                                    <Input label="Phone Number" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                                </Col>
+                                {/* <Col>
+                                    <IntlTelInput
+                                        type="number"
+                                        id="outlined-basic"
+                                        variant="outlined"
+                                        value={phone}
+                                        onChange={e => setPhone(e.target.value)}
+                                        containerClassName="intl-tel-input"
+                                        inputClassName="form-control"
+                                        preferredCountries={['in']}
+                                        separateDialCode={true}
+                                    />
+                                </Col> */}
+                            </Row>
+                            <button type="button" className="btn solid" onClick={singUp} >Sign In</button>
                         </form>
                     </div>
                 </div>
@@ -171,6 +156,20 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+
+            <ToastContainer
+                position="bottom-left"
+                autoClose={2000}
+                hideProgressBar={true}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+                style={{ fontSize: "14px" }}
+            />
 
         </>
     )
