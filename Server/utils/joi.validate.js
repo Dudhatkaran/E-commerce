@@ -8,7 +8,8 @@ module.exports = {
             email: Joi.string().email().required(),
             name: Joi.string().required(),
             phone: Joi.number().required(),
-            password: Joi.string().required()
+            password: Joi.string().required(),
+            role: Joi.string().required()
         });
 
         let { error } = schema.validate(req.body);

@@ -7,12 +7,12 @@ import FormLabel from '@mui/material/FormLabel';
 
 const Radiobutton = (props) => {
     return (
-        <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label">{props.heading}</FormLabel>
-            <RadioGroup
-                aria-labelledby="demo-radio-buttons-group-label"
-                name="radio-buttons-group"
-            >
+        // <FormControl>
+        //     <FormLabel id="demo-radio-buttons-group-label">{props.heading}</FormLabel>
+        //     <RadioGroup
+        //         aria-labelledby="demo-radio-buttons-group-label"
+        //         name="radio-buttons-group"
+        //     >
                 <FormControlLabel
                     control={<Radio />}
                     label={props.label}
@@ -20,8 +20,8 @@ const Radiobutton = (props) => {
                     onChange={props.onChange}
                     onClick={props.onClick}
                 />
-            </RadioGroup>
-        </FormControl>
+        //     </RadioGroup>
+        // </FormControl>
     )
 }
 

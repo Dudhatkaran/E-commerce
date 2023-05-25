@@ -13,6 +13,7 @@ import Input from '../../InputField/Input';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Radiobutton from '../../Radiobutton/Radiobutton';
+import { FormControl, FormLabel, RadioGroup } from '@mui/material';
 
 const { LoginApi } = API_URLS
 const Login = () => {
@@ -25,13 +26,15 @@ const Login = () => {
     const [phone, setPhone] = useState("")
     const [admin, setAdmin] = useState("")
     const [user, setUser] = useState("User")
+    const [role, setRole] = useState("")
+
 
 
     const singUp = async () => {
-        await axios.post("http://192.168.0.108:3000/User/Insert", { name, email, password, phone })
+        await axios.post("http://192.168.0.108:3000/User/Insert", { name, email, password, phone, role })
             .then(res => {
                 const data = res.data;
-                console.log(data.success);
+                console.log(data)
                 if (data._id != "" && data.success === true) {
                     toast.success(data.message);
                     setName("")
@@ -40,9 +43,15 @@ const Login = () => {
                     setPhone("")
                     navigate("/Login");
                 }
+                else if (data.success === false) {
+                    toast.error(data.message);
+                }
             })
-            .catch(function (error) {
-                toast.error(error.message);
+            .catch((error) => {
+                // var msg = JSON.stringify(error.request.response)
+                // console.log(msg)
+                console.log(error.request.response["message"])
+                toast.error(error.request.response);
             });
     }
 
@@ -78,6 +87,10 @@ const Login = () => {
         });
     }, [])
 
+    const roleCheck = (e) => {
+        setRole(e)
+    }
+
     return (
         <>
             <div className="container" id='Login'>
@@ -102,8 +115,12 @@ const Login = () => {
                             <h2 className="title">Sign up</h2>
                             <Row>
                                 <Col>
-                                    <Radiobutton label="Admin" value="Admin" onChange={e => setAdmin(e.target.value)} />
-                                    <Radiobutton label="User" value="User" onChange={e => setUser(e.target.value)} />
+                                    <FormControl>
+                                        <RadioGroup row aria-labelledby="demo-row-radio-buttons-group-label" name="row-radio-buttons-group">
+                                            <Radiobutton label="Admin" value="Admin" onChange={e => roleCheck(e.target.value)} />
+                                            <Radiobutton label="User" value="User" onChange={e => roleCheck(e.target.value)} />
+                                        </RadioGroup>
+                                    </FormControl>
                                 </Col>
                             </Row>
                             <Row className='justify-content-center align-items-center'>
