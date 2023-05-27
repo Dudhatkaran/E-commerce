@@ -28,48 +28,75 @@ const Login = () => {
     const [user, setUser] = useState("User")
     const [role, setRole] = useState("")
 
-
+    const refFn = () => {
+        setName("")
+        setEmail("")
+        setPassword("")
+        setPhone("")
+    }
 
     const singUp = async () => {
-        await axios.post("http://192.168.0.108:3000/User/Insert", { name, email, password, phone, role })
-            .then(res => {
-                const data = res.data;
-                console.log(data)
-                if (data._id != "" && data.success === true) {
-                    toast.success(data.message);
-                    setName("")
-                    setEmail("")
-                    setPassword("")
-                    setPhone("")
-                    navigate("/Login");
-                }
-                else if (data.success === false) {
-                    toast.error(data.message);
-                }
-            })
-            .catch((error) => {
-                // var msg = JSON.stringify(error.request.response)
-                // console.log(msg)
-                console.log(error.request.response["message"])
-                toast.error(error.request.response);
-            });
+        if (name == "") {
+            toast.error("Name is required");
+        }
+        else if (email == "") {
+            toast.error("Email is required");
+        }
+        else if (password == "") {
+            toast.error("Password is required");
+        }
+        else if (phone == "") {
+            toast.error("Phone is required");
+        }
+        else if (role == "") {
+            toast.error("Role is required");
+        }
+        else {
+            await axios.post("http://192.168.0.108:3000/User/Insert", { name, email, password, phone, role })
+                .then(res => {
+                    const data = res.data;
+                    console.log(data)
+                    if (data._id != "" && data.success === true) {
+                        toast.success(data.message);
+                        refFn()
+                        navigate("/Login");
+                    }
+                    else if (data.success === false) {
+                        toast.error(data.message);
+                    }
+                })
+                .catch((error) => {
+                    // var msg = JSON.stringify(error.request.response)
+                    // console.log(msg)
+                    console.log(error.request.response["message"])
+                    toast.error(error.request.response);
+                });
+        }
     }
 
     const signIn = async () => {
-        await axios.post("http://192.168.0.108:3000/User/Login", { name, password })
-            .then(res => {
-                const data = res.data.data;
-                console.log(data.success);
-                if (data._id != "" && data.success === true) {
-                    toast.success(data.message);
-                    localStorage.setItem("USER_ID", data._id);
-                    localStorage.setItem("USER_NAME", data.name);
-                    navigate("/");
-                }
-            })
-            .catch(function (error) {
-                toast.error(error.message);
-            });
+        if (name == "") {
+            toast.error("UserName is required");
+        }
+        else if (password == "") {
+            toast.error("Password is required");
+        }
+        else {
+            await axios.post("http://192.168.0.108:3000/User/Login", { name, password })
+                .then(res => {
+                    const data = res.data.data;
+                    if (data._id != "" && res.data.status === true) {
+                        toast.success(res.data.message);
+                        localStorage.setItem("USER_ID", data._id);
+                        localStorage.setItem("USER_NAME", data.name);
+                        refFn()
+                        navigate("/");
+                    }
+                })
+                .catch(function (error) {
+                    toast.error(error.message);
+                });
+        }
     }
 
 
@@ -106,7 +133,14 @@ const Login = () => {
                                     <Input label="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                                 </Col>
                             </Row>
-                            <button type="button" className="btn solid" onClick={signIn} >Sign In</button>
+                            <nav>
+                                <ul onClick={signIn} >
+                                    <li>
+                                        Sign In
+                                        <span></span><span></span><span></span><span></span>
+                                    </li>
+                                </ul>
+                            </nav>
                         </form>
 
 
@@ -150,7 +184,14 @@ const Login = () => {
                                     />
                                 </Col> */}
                             </Row>
-                            <button type="button" className="btn solid" onClick={singUp} >Sign In</button>
+                            <nav>
+                                <ul onClick={singUp} >
+                                    <li>
+                                        Sign UP
+                                        <span></span><span></span><span></span><span></span>
+                                    </li>
+                                </ul>
+                            </nav>
                         </form>
                     </div>
                 </div>

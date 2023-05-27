@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import Layout from '../../Component/Layout/Layout'
 
 const Home = () => {
     var navigate = useNavigate()
@@ -11,6 +12,9 @@ const Home = () => {
     }
     return (
         <>
+            <Layout />
+
+            
             <div>Home</div>
             <button onClick={logOut}>Log Out</button>
         </>

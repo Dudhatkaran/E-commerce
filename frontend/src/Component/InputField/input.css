@@ -5,3 +5,7 @@
 .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
     top: -4px !important;
 }
+
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
+    width: 135% !important;
+}
