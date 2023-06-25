@@ -1,0 +1,53 @@
+:root {
+    --Header-Font--: #FFFFFF;
+    --Header-Hover-Font--: #000000;
+    --Header--Border-Radius--: 10px
+}
+
+.mainHeader {
+    background-color: lightslategrey !important;
+    padding: 20px 5px;
+    color: var(--Header-Font--);
+}
+
+#Header ul li a {
+    padding: 10px 30px;
+}
+
+#Header {
+    background-color: #778899;
+}
+
+#Header ul li a {
+    border-radius: var(--Header--Border-Radius--);
+}
+
+#Header ul li a:hover {
+    padding: 10px 30px;
+    background-color: var(--Header-Font--) !important;
+    color: var(--Header-Hover-Font--) !important;
+    border-radius: var(--Header--Border-Radius--);
+}
+
+#Header .logo {
+    color: #FFFFFF !important;
+    font-size: 20px;
+}
+
+.dropDown {
+    display: none !important;
+}
+
+.accountIcon:hover {
+    cursor: pointer;
+}
+
+.accountIcon:hover .dropDown {
+    cursor: pointer;
+    display: block !important;
+    cursor: pointer;
+    width: 100%;
+    height: 200px;
+    background-color: var(--Header-Hover-Font--);
+    z-index: 99999 !important;
+}

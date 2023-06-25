@@ -10,7 +10,7 @@ const Input = (props) => {
                 '& > :not(style)': { m: 1, width: '25ch' },
             }}
             noValidate
-            autoComplete="off"
+            autoComplete="on"
         >
             <TextField id="outlined-basic"
                 label={props.label}
@@ -18,6 +18,7 @@ const Input = (props) => {
                 value={props.value}
                 onChange={props.onChange}
                 onClick={props.onClick}
+                placeholder={props.placeholder}
             />
         </Box>
     )

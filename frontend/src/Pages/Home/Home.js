@@ -1,6 +1,13 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Layout from '../../Component/Layout/Layout'
+import Slider from '../../Component/Owl-Carousal/Slider'
+import TrendingSale from '../Trending Sale/TrendingSale'
+import ExplorProduct from '../Explor Product/ExplorProduct'
+import Topkurti from '../Top Kurti/Topkurti'
+import BestSelling from '../Best Selling/BestSelling'
+import Footer from '../../Component/Footer/Footer'
+import Productcard from '../../Component/Product Card/Productcard'
 
 const Home = () => {
     var navigate = useNavigate()
@@ -13,10 +20,12 @@ const Home = () => {
     return (
         <>
             <Layout />
-
-            
-            <div>Home</div>
-            <button onClick={logOut}>Log Out</button>
+            <Slider />
+            <TrendingSale />
+            <ExplorProduct />
+            <Topkurti />
+            <BestSelling />
+            <Footer />
         </>
     )
 }

@@ -4,15 +4,15 @@
     box-sizing: border-box;
 }
 
-.container {
-    position: relative;
+#Login .container {
+    position: relative !important;
     width: 100%;
     background-color: #fff;
     min-height: 100vh;
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
-.forms-container {
+#Login .forms-container {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -20,7 +20,7 @@
     left: 0;
 }
 
-.signin-signup {
+#Login .signin-signup {
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -32,7 +32,7 @@
     z-index: 5;
 }
 
-form {
+#Login form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,35 +44,23 @@ form {
     grid-row: 1 / 2;
 }
 
-form.sign-up-form {
+#Login form.sign-up-form {
     opacity: 0;
     z-index: 1;
 }
 
-form.sign-in-form {
+#Login form.sign-in-form {
     z-index: 2;
 }
 
-.title {
+#Login.title {
     font-size: 2.2rem;
     color: #444;
     margin-bottom: 10px;
 }
 
-/* .input-field {
-    max-width: 380px;
-    width: 100%;
-    background-color: #f0f0f0;
-    margin: 10px 0;
-    height: 55px;
-    border-radius: 55px;
-    display: grid;
-    grid-template-columns: 15% 85%;
-    padding: 0 0.4rem;
-    position: relative;
-} */
 
-.input-field i {
+#Login .input-field i {
     text-align: center;
     line-height: 55px;
     color: #acacac;
@@ -80,32 +68,18 @@ form.sign-in-form {
     font-size: 1.1rem;
 }
 
-/* .input-field input {
-    background: none;
-    outline: none;
-    border: none;
-    line-height: 1;
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: #333;
-} */
-/* 
-.input-field input::placeholder {
-    color: #aaa;
-    font-weight: 500;
-} */
 
-.social-text {
+#Login .social-text {
     padding: 0.7rem 0;
     font-size: 1rem;
 }
 
-.social-media {
+#Login .social-media {
     display: flex;
     justify-content: center;
 }
 
-.social-icon {
+#Login .social-icon {
     height: 46px;
     width: 46px;
     display: flex;
@@ -120,7 +94,7 @@ form.sign-in-form {
     transition: 0.3s;
 }
 
-.social-icon:hover {
+#Login .social-icon:hover {
     color: #4481eb;
     border-color: #4481eb;
 }
@@ -140,11 +114,11 @@ form.sign-in-form {
     transition: 0.5s;
 }
 
-.btn:hover {
+#Login .btn:hover {
     background-color: #4d84e2;
 }
 
-.panels-container {
+#Login .panels-container {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -154,7 +128,7 @@ form.sign-in-form {
     grid-template-columns: repeat(2, 1fr);
 }
 
-.container:before {
+#Login .container:before {
     content: "";
     position: absolute;
     height: 2000px;
@@ -168,13 +142,13 @@ form.sign-in-form {
     z-index: 6;
 }
 
-.image {
+#Login .image {
     width: 100%;
     transition: transform 1.1s ease-in-out;
     transition-delay: 0.4s;
 }
 
-.panel {
+#Login .panel {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -183,34 +157,34 @@ form.sign-in-form {
     z-index: 6;
 }
 
-.left-panel {
+#Login .left-panel {
     pointer-events: all;
     padding: 3rem 17% 2rem 12%;
 }
 
-.right-panel {
+#Login .right-panel {
     pointer-events: none;
     padding: 3rem 12% 2rem 17%;
 }
 
-.panel .content {
+#Login .panel .content {
     color: #fff;
     transition: transform 0.9s ease-in-out;
     transition-delay: 0.6s;
 }
 
-.panel h3 {
+#Login .panel h3 {
     font-weight: 600;
     line-height: 1;
     font-size: 1.5rem;
 }
 
-.panel p {
+#Login .panel p {
     font-size: 0.95rem;
     padding: 0.7rem 0;
 }
 
-.btn.transparent {
+#Login .btn.transparent {
     margin: 0;
     background: none;
     border: 2px solid #fff;
@@ -220,74 +194,74 @@ form.sign-in-form {
     font-size: 0.8rem;
 }
 
-.right-panel .image,
-.right-panel .content {
+#Login .right-panel .image,
+#Login .right-panel .content {
     transform: translateX(800px);
 }
 
 /* ANIMATION */
 
-.container.sign-up-mode:before {
+#Login.container.sign-up-mode:before {
     transform: translate(100%, -50%);
     right: 52%;
 }
 
-.container.sign-up-mode .left-panel .image,
-.container.sign-up-mode .left-panel .content {
+#Login .container.sign-up-mode .left-panel .image,
+#Login .container.sign-up-mode .left-panel .content {
     transform: translateX(-800px);
 }
 
-.container.sign-up-mode .signin-signup {
+#Login.container.sign-up-mode .signin-signup {
     left: 25%;
 }
 
-.container.sign-up-mode form.sign-up-form {
+#Login.container.sign-up-mode form.sign-up-form {
     opacity: 1;
     z-index: 2;
 }
 
-.container.sign-up-mode form.sign-in-form {
+#Login .container.sign-up-mode form.sign-in-form {
     opacity: 0;
     z-index: 1;
 }
 
-.container.sign-up-mode .right-panel .image,
-.container.sign-up-mode .right-panel .content {
+#Login .container.sign-up-mode .right-panel .image,
+#Login .container.sign-up-mode .right-panel .content {
     transform: translateX(0%);
 }
 
-.container.sign-up-mode .left-panel {
+#Login .container.sign-up-mode .left-panel {
     pointer-events: none;
 }
 
-.container.sign-up-mode .right-panel {
+#Login .container.sign-up-mode .right-panel {
     pointer-events: all;
 }
 
 @media (max-width: 870px) {
-    .container {
+    #Login .container {
         min-height: 800px;
         height: 100vh;
     }
 
-    .signin-signup {
+    #Login .signin-signup {
         width: 100%;
         top: 95%;
         transform: translate(-50%, -100%);
         transition: 1s 0.8s ease-in-out;
     }
 
-    .signin-signup,
-    .container.sign-up-mode .signin-signup {
+    #Login .signin-signup,
+    #Login.container.sign-up-mode .signin-signup {
         left: 50%;
     }
 
-    .panels-container {
+    #Login .panels-container {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 2fr 1fr;
     }
 
-    .panel {
+    #Login .panel {
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
@@ -295,42 +269,42 @@ form.sign-in-form {
         grid-column: 1 / 2;
     }
 
-    .right-panel {
+    #Login .right-panel {
         grid-row: 3 / 4;
     }
 
-    .left-panel {
+    #Login .left-panel {
         grid-row: 1 / 2;
     }
 
-    .image {
+    #Login .image {
         width: 200px;
         transition: transform 0.9s ease-in-out;
         transition-delay: 0.6s;
     }
 
-    .panel .content {
+    #Login .panel .content {
         padding-right: 15%;
         transition: transform 0.9s ease-in-out;
         transition-delay: 0.8s;
     }
 
-    .panel h3 {
+    #Login.panel h3 {
         font-size: 1.2rem;
     }
 
-    .panel p {
+    #Login .panel p {
         font-size: 0.7rem;
         padding: 0.5rem 0;
     }
 
-    .btn.transparent {
+    #Login .btn.transparent {
         width: 110px;
         height: 35px;
         font-size: 0.7rem;
     }
 
-    .container:before {
+    #Login .container:before {
         width: 1500px;
         height: 1500px;
         transform: translateX(-50%);
@@ -341,73 +315,73 @@ form.sign-in-form {
         transition: 2s ease-in-out;
     }
 
-    .container.sign-up-mode:before {
+    #Login .container.sign-up-mode:before {
         transform: translate(-50%, 100%);
         bottom: 32%;
         right: initial;
     }
 
-    .container.sign-up-mode .left-panel .image,
-    .container.sign-up-mode .left-panel .content {
+    #Login .container.sign-up-mode .left-panel .image,
+    #Login .container.sign-up-mode .left-panel .content {
         transform: translateY(-300px);
     }
 
-    .container.sign-up-mode .right-panel .image,
-    .container.sign-up-mode .right-panel .content {
+    #Login .container.sign-up-mode .right-panel .image,
+    #Login .container.sign-up-mode .right-panel .content {
         transform: translateY(0px);
     }
 
-    .right-panel .image,
-    .right-panel .content {
+    #Login .right-panel .image,
+    #Login.right-panel .content {
         transform: translateY(300px);
     }
 
-    .container.sign-up-mode .signin-signup {
+    #Login.container.sign-up-mode .signin-signup {
         top: 5%;
         transform: translate(-50%, 0);
     }
 }
 
 @media (max-width: 570px) {
-    form {
+    #Login form {
         padding: 0 1.5rem;
     }
 
-    .image {
+    #Login .image {
         display: none;
     }
 
-    .panel .content {
+    #Login .panel .content {
         padding: 0.5rem 1rem;
     }
 
-    .container {
+    #Login .container {
         padding: 1.5rem;
     }
 
-    .container:before {
+    #Login .container:before {
         bottom: 72%;
         left: 50%;
     }
 
-    .container.sign-up-mode:before {
+    #Login .container.sign-up-mode:before {
         bottom: 28%;
         left: 50%;
     }
 }
 
-.intl-tel-input.allow-dropdown input[type=tel] {
+#Login .intl-tel-input.allow-dropdown input[type=tel] {
     margin-left: 165px !important;
     margin-top: 10px !important;
 }
 
-.intl-tel-input.allow-dropdown.separate-dial-code .selected-dial-code {
+#Login .intl-tel-input.allow-dropdown.separate-dial-code .selected-dial-code {
     padding-left: 0 !important;
 }
 
-.intl-tel-input.allow-dropdown.separate-dial-code.iti-sdc-3 input,
-.intl-tel-input.allow-dropdown.separate-dial-code.iti-sdc-3 input[type=text],
-.intl-tel-input.allow-dropdown.separate-dial-code.iti-sdc-3 input[type=tel] {
+#Login .intl-tel-input.allow-dropdown.separate-dial-code.iti-sdc-3 input,
+#Login .intl-tel-input.allow-dropdown.separate-dial-code.iti-sdc-3 input[type=text],
+#Login .intl-tel-input.allow-dropdown.separate-dial-code.iti-sdc-3 input[type=tel] {
     padding-left: 0 !important;
     width: 201px !important;
     font: inherit;
@@ -430,7 +404,7 @@ form.sign-in-form {
     padding: 9.5px 14px;
 }
 
-.intl-tel-input.allow-dropdown .flag-container {
+#Login .intl-tel-input.allow-dropdown .flag-container {
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-weight: 400;
     font-size: 1rem;
@@ -450,13 +424,13 @@ form.sign-in-form {
 
 
 
-nav ul {
+#Login nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-nav ul li {
+#Login nav ul li {
     --c: #1AA9F7;
     color: var(--c);
     font-size: 16px;
@@ -478,7 +452,7 @@ nav ul li {
     margin-top: 20px;
 }
 
-nav ul li span {
+#Login nav ul li span {
     position: absolute;
     width: 25%;
     height: 100%;
@@ -491,27 +465,27 @@ nav ul li span {
     z-index: -1;
 }
 
-nav ul li:hover {
+#Login nav ul li:hover {
     cursor: pointer;
     color: #FFFFFF;
 }
 
-nav ul li:hover span {
+#Login nav ul li:hover span {
     transform: translateY(0) scale(2);
 }
 
-nav ul li span:nth-child(1) {
+#Login nav ul li span:nth-child(1) {
     --n: 1;
 }
 
-nav ul li span:nth-child(2) {
+#Login nav ul li span:nth-child(2) {
     --n: 2;
 }
 
-nav ul li span:nth-child(3) {
+#Login nav ul li span:nth-child(3) {
     --n: 3;
 }
 
-nav ul li span:nth-child(4) {
+#Login nav ul li span:nth-child(4) {
     --n: 4;
 }
