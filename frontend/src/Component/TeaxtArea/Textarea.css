@@ -1,0 +1,28 @@
+.mainTextarea textarea {
+    width: 100% !important;
+    border-radius: 10px !important;
+    min-height: 10px !important;
+    align-items: center !important;
+    padding: 5px 10px !important;
+    margin-left: 0 !important;
+    font-size: 14px !important;
+}
+
+textarea {
+    border: 1px solid silver !important;
+    transition: .2s;
+}
+
+textarea:focus {
+    transition: .2s;
+    outline: none !important;
+    border: 1px solid #68A89E !important;
+    border-color: #68A89E !important;
+    box-shadow: none !important;
+}
+
+.mainTextarea textarea {
+    width: 37.8% !important;
+    margin-left: 78px !important;
+    border-radius: 4px !important;
+}

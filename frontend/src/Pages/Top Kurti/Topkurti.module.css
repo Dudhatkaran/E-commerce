@@ -1,0 +1,13 @@
+h3 {
+    text-transform: uppercase;
+    font-family: "Hind Vadodara";
+    font-weight: 600;
+    word-spacing: 1px;
+    letter-spacing: 2px;
+    font-size: 34px;
+}
+
+#TopKurti p {
+    font-family: "Hind Vadodara";
+    font-weight: 700;
+}

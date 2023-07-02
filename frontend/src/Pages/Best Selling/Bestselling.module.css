@@ -1,0 +1,12 @@
+#BestSale img {
+    object-fit: cover;
+}
+
+.mainPrice {
+    text-decoration: line-through;
+}
+
+.savePrice {
+    color: green;
+    font-weight: bold
+}

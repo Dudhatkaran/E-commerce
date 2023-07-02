@@ -1,0 +1,129 @@
+:root {
+    font-family: "Hind Vadodara";
+    font-size: 500;
+}
+
+li {
+    list-style: none;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+a {
+    text-decoration: none !important;
+    color: #FFFFFF !important;
+}
+
+.modal {
+    z-index: 99999 !important;
+}
+
+.submitBtn {
+    border: none;
+    background-color: green;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    border-radius: 4px;
+}
+
+.cancelBtn {
+    border: none;
+    background-color: red;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    border-radius: 4px;
+}
+
+/* Hind Vadodara font family : */
+
+@font-face {
+    font-family: "Hind Vadodara";
+    font-size: 300;
+    src: url("../Fonts/HindVadodara/static/HindVadodara-Light.ttf");
+}
+
+@font-face {
+    font-family: "Hind Vadodara";
+    font-size: 400;
+    src: url("../Fonts/HindVadodara/static/HindVadodara-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Hind Vadodara";
+    font-size: 500;
+    src: url("../Fonts/HindVadodara/static/HindVadodara-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Hind Vadodara";
+    font-size: 600;
+    src: url("../Fonts/HindVadodara/static/HindVadodara-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "Hind Vadodara";
+    font-size: 700;
+    src: url("../Fonts/HindVadodara/static/HindVadodara-Bold.ttf");
+}
+
+/* Poppins font family : */
+@font-face {
+    font-family: "Poppins";
+    font-size: 100;
+    src: url("../Fonts/Poppins/static/Poppins-Thin.ttf");
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-size: 200;
+    src: url("../Fonts/Poppins/static/Poppins-ExtraLight.ttf");
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-size: 300;
+    src: url("../Fonts/Poppins/static/Poppins-Light.ttf");
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-size: 400;
+    src: url("../Fonts/Poppins/static/Poppins-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-size: 500;
+    src: url("../Fonts/Poppins/static/Poppins-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-size: 600;
+    src: url("../Fonts/Poppins/static/Poppins-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-size: 700;
+    src: url("../Fonts/Poppins/static/Poppins-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-size: 700;
+    src: url("../Fonts/Poppins/static/Poppins-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-size: 800;
+    src: url("../Fonts/Poppins/static/Poppins-ExtraBold.ttf");
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-size: 900;
+    src: url("../Fonts/Poppins/static/Poppins-Black.ttf");
+}

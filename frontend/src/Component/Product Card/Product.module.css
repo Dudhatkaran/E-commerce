@@ -1,0 +1,57 @@
+#Saree .mainProductPart h4 {
+    text-transform: uppercase;
+    font-family: "Hind Vadodara";
+    font-weight: 600;
+    word-spacing: 1px;
+    letter-spacing: 2px;
+    font-size: 34px;
+}
+
+
+.overlay {
+    overflow: hidden;
+}
+
+#Saree img {
+    transition: transform 0.8s;
+}
+
+.mainCard:hover img {
+    transform: scale(1.2);
+    transition: transform 0.3s;
+}
+
+.mainCard {
+    overflow: hidden !important;
+}
+
+.mainCard img {
+    object-fit: cover !important;
+}
+
+#Saree .text {
+    color: #FFFFFF !important;
+    font-size: 20px;
+    position: absolute;
+    top: 5%;
+    left: 86%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 9999;
+}
+
+.text h6 {
+    background-color: #000000 !important;
+    padding: 4px 8px;
+}
+
+.mainPrice {
+    text-decoration: line-through;
+}
+
+.savePrice {
+    color: green;
+    font-weight: bold
+}

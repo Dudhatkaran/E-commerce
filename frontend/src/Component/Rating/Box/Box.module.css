@@ -1,0 +1,25 @@
+.ratingContent {
+  text-align: start;
+}
+
+.ratingContent h2 {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000000;
+}
+
+
+.ratingStar .star {
+  margin-right: 5px;
+}
+
+.selected {
+  color: orange;
+  cursor: pointer;
+}
+
+.Unselected {
+  color: black;
+}
