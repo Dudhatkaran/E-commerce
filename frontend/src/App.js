@@ -12,6 +12,7 @@ import Saree from './Pages/Saree/Saree';
 import Kurti from './Pages/Kurti/Kurti';
 import Gown from './Pages/Gown/Gown';
 import Viewproduct from './Component/View Product/Viewproduct';
+import Addcart from './Component/Add to Cart/Addcart';
 
 
 function App() {
