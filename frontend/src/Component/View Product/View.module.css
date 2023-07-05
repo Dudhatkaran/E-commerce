@@ -45,6 +45,7 @@
     transition: 0.4s ease;
     margin: auto;
     z-index: 99999;
+    font-size: 18px;
 }
 
 .rightSection {

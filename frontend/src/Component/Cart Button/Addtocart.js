@@ -1,11 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './Addtocart.css';
+// import './Addtocart.css';
+import './cart.css';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Col, Modal, Row } from 'react-bootstrap';
 import { BestSale } from '../../Shared';
 import StepProgressBar from 'react-step-progress';
 import 'react-step-progress/dist/index.css';
+import { GrAddCircle } from "react-icons/gr";
+import { BsCartCheckFill } from "react-icons/bs";
+import { TbTruckDelivery } from "react-icons/tb";
 
 const AddToCart = ({ cartStatus }) => {
     const [phoneNumber, setPhoneNumber] = useState("")
@@ -16,19 +20,34 @@ const AddToCart = ({ cartStatus }) => {
     const [quantity, setQuantity] = useState(1);
     const buttonRef = useRef(null);
     const [modalShow, setModalShow] = useState(false);
+    const [curretIndex, setCurretIndex] = useState(1)
 
     const [countryCode, setCountryCode] = useState('');
     const [selectedCountry, setSelectedCountry] = useState(null);
 
 
     const handleClose = () => { setShow(false); setIsAdded(false) };
-    const handleShow = () => setShow(true);
+    const handleShow = () => { setShow(true); }
 
     const handleAddToCart = () => {
         setShow(true)
         setIsAdded(true);
     };
 
+    useEffect(() => {
+        const cartButtons = document.querySelectorAll('.cart-button');
+
+        cartButtons.forEach(button => {
+            button.addEventListener('click', cartClick);
+        });
+
+        function cartClick() {
+            setShow(true)
+            setIsAdded(true)
+            let button = this;
+            button.classList.add('clicked');
+        }
+    }, [])
 
     const handleIncrement = () => {
         setQuantity(quantity + 1);
@@ -40,28 +59,15 @@ const AddToCart = ({ cartStatus }) => {
         }
     };
 
-
-    const handleClick = () => {
-        let button = buttonRef.current;
-
-        if (!button.classList.contains('animate')) {
-            button.classList.add('animate');
-            setTimeout(() => {
-                button.classList.remove('animate');
-            }, 10000);
-        }
-    };
-
     const orderHandler = () => {
         setModalShow(true)
     }
 
     const Step1Content = () => {
         const [phoneNumber, setPhoneNumber] = useState('');
-
         return (
             <>
-                <Col className='text-center'>
+                <Col className='text-center mt-5'>
                     <h5>Enter Mobile Number</h5>
                 </Col>
                 <Col xs="12" className='text-center mt-3'>
@@ -81,7 +87,7 @@ const AddToCart = ({ cartStatus }) => {
                 <Col xs="12" className='mt-3 align-items-center'>
                     <div className="checkbox-wrapper-12 align-items-center">
                         <div className="cbx align-items-center">
-                            <input id="cbx-12" type="checkbox" className='me-3'/><label htmlFor="cbx-12" /><svg width={15} height={14} viewBox="0 0 15 14" fill="none"><path d="M2 8.36364L6.23077 12L13 2" /></svg><span><h6>Notify me for orders, updates & offers</h6></span>
+                            <input id="cbx-12" type="checkbox" className='me-3' /><label htmlFor="cbx-12" /><svg width={15} height={14} viewBox="0 0 15 14" fill="none"><path d="M2 8.36364L6.23077 12L13 2" /></svg><span><h6>Notify me for orders, updates & offers</h6></span>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1"><defs>
                             <filter id="goo-12"><feGaussianBlur in="SourceGraphic" stdDeviation={4} result="blur" /><feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7" result="goo-12" /><feBlend in="SourceGraphic" in2="goo-12" /></filter></defs></svg>
@@ -92,9 +98,49 @@ const AddToCart = ({ cartStatus }) => {
         );
     };
 
-    // const step1Content = "Harsh"
-    const step2Content = "Savaliya";
-    const step3Content = "";
+    const Step2Content = () => {
+        const [phoneNumber, setPhoneNumber] = useState('');
+        return (
+            <>
+                <Col className='mt-3'>
+                    <p className='ms-5'>Hey! Welcome back +91 99987 60805 </p>
+                </Col>
+                <Col>
+                    <h5 className='ms-5'>Shipping Address</h5>
+                </Col>
+                <Col className='align-items-center'>
+                    <div className='ms-5 align-items-center'>
+                        <div className='mainAddressBar'>
+                            <div className='d-flex align-items-center'>
+                                <input type='radio' className='m-0 mb-0' defaultChecked /><h6 className='ms-1 me-2 mt-1'>Harsh Savaliya</h6><span className='emailSection'><p className="AddressEmail mt-3">harshsavaliya250@gmail.com</p></span>
+                            </div>
+                            <div className='px-3'>
+                                <p>D-303 Victoriya Township, Pasodara, Kamrej Subdistrict, Surat District, Gujarat, 394180</p>
+                            </div>
+                        </div>
+                    </div>
+                </Col>
+                <Col className='shipping align-items-center'>
+                    <h5 className='ms-5 mt-2'>Shipping method <input type='radio' className='m-0 mb-0 me-2' defaultChecked /><span>Free Shipping @ ₹0</span></h5>
+                </Col>
+                <Col className='mt-3'>
+                    <div className='ms-5'>
+                        <GrAddCircle size={30} /> Add New Address
+                    </div>
+                </Col>
+            </>
+        );
+    };
+    const Step3Content = () => {
+        const [phoneNumber, setPhoneNumber] = useState('');
+
+        return (
+            <>
+
+            </>
+        );
+    };
+
 
 
     function step1Validator() {
@@ -114,68 +160,20 @@ const AddToCart = ({ cartStatus }) => {
     function step3Validator() {
     }
 
-    function onFormSubmit() {
+    const onFormSubmit = () => {
+
     }
 
     return (
         <>
-            <div id="addtoCart">
-                <button
-                    className={`add-to-cart-button ${isAdded ? 'added' : ''}`}
-                    onClick={handleAddToCart}
-                >
-                    <svg
-                        className="add-to-cart-box box-1"
-                        width={24}
-                        height={24}
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <rect width={24} height={24} rx={2} fill="#ffffff" />
-                    </svg>
-                    <svg
-                        className="add-to-cart-box box-2"
-                        width={24}
-                        height={24}
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <rect width={24} height={24} rx={2} fill="#ffffff" />
-                    </svg>
-                    <svg
-                        className="cart-icon"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={24}
-                        height={24}
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#000000"
-                        strokeWidth={2}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                    >
-                        <circle cx={9} cy={21} r={1} />
-                        <circle cx={20} cy={21} r={1} />
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-                    </svg>
-                    <svg
-                        className="tick"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={24}
-                        height={24}
-                        viewBox="0 0 24 24"
-                    >
-                        <path fill="none" d="M0 0h24v24H0V0z" />
-                        <path
-                            fill="#ffffff"
-                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM9.29 16.29L5.7 12.7c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0L10 14.17l6.88-6.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-7.59 7.59c-.38.39-1.02.39-1.41 0z"
-                        />
-                    </svg>
-                    <span className="add-to-cart">{isAdded ? 'Added to cart' : 'Add to cart'}</span>
-                </button>
-            </div>
+            <button className="cart-button">
+                {
+                    isAdded == true ? <span className="added BuyBtn" >Added</span> : <span className="add-to-cart BuyBtn" onClick={() => handleShow()}>Add to cart</span>
+                }
+                <BsCartCheckFill className="fas fa-shopping-cart" />
+                <i className="fas fa-box" />
+            </button>
+
             {isAdded && ['end'].map((placement, idx) => (
                 <Offcanvas show={show} onHide={handleClose} className="mainCartMenu" placement={placement} name={placement} >
                     <Offcanvas.Header closeButton>
@@ -198,7 +196,7 @@ const AddToCart = ({ cartStatus }) => {
                                                 <h6>Black Kurti with Pant And Dupatta</h6>
                                                 <p>Size:5</p>
                                                 <div className='d-flex align-items-center'>
-                                                    <div className="cart-button">
+                                                    <div className="cartButton">
                                                         <button className="minus-button" onClick={handleDecrement}>-</button>
                                                         <span className="quantity">{quantity}</span>
                                                         <button className="plus-button" onClick={handleIncrement}>+</button>
@@ -216,35 +214,7 @@ const AddToCart = ({ cartStatus }) => {
                         <Row className='text-center mt-4'>
                             <Col xs="12" className='mb-4'><h6>Tax included and Free Shipping</h6></Col>
                             <Col>
-                                {/* <button className="order" ref={buttonRef} onClick={handleClick}><span className="default">Complete Order</span><span className="success">Order Placed<svg viewBox="0 0 12 10">
-                                    <polyline points="1.5 6 4.5 9 10.5 1" />
-                                </svg></span>
-                                    <div className="box" />
-                                    <div className="truck">
-                                        <div className="back" />
-                                        <div className="front">
-                                            <div className="window" />
-                                        </div>
-                                        <div className="light top" />
-                                        <div className="light bottom" />
-                                    </div>
-                                    <div className="lines" />
-                                </button> */}
-
-                                <div className="wrapper1" onClick={orderHandler}>
-                                    <a className="cta" href="#">
-                                        <span>Place Order</span>
-                                        <span>
-                                            <svg width="30px" height="20px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsxlink="http://www.w3.org/1999/xlink">
-                                                <g id="arrow" stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
-                                                    <path className="one" d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z" fill="#FFFFFF" />
-                                                    <path className="two" d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z" fill="#FFFFFF" />
-                                                    <path className="three" d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z" fill="#FFFFFF" />
-                                                </g>
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
+                                <button className="button-57" role="button" onClick={() => setModalShow(true)}><span className="text">Place Order</span><span><TbTruckDelivery size={50} /></span></button>
                             </Col>
                         </Row>
                     </Offcanvas.Body>
@@ -259,19 +229,22 @@ const AddToCart = ({ cartStatus }) => {
                 className='modal'
                 id="mainModal"
             >
-                <Modal.Header closeButton onHide={() => setModalShow(false)}>
-
-                </Modal.Header>
-                <Row className='p-2'>
+                <Modal.Header closeButton onHide={() => setModalShow(false)}></Modal.Header>
+                <Row className='p-1'>
                     <Col sm="8">
                         <Row>
-                            <Col><h3>LOGO</h3></Col>
+                            <Col className='text-center'><h3>HK Creation</h3></Col>
                         </Row>
-                        <Row className='leftModalSide'>
+                        <Row className="tabButton p-2">
+                            <Col><button className={curretIndex === 1 ? "activeTab" : ""} onClick={() => setCurretIndex(1)}>Mobile</button></Col>
+                            <Col ><button className={curretIndex === 2 ? "activeTab" : ""} onClick={() => setCurretIndex(2)}>Address</button></Col>
+                            <Col><button className={curretIndex === 3 ? "activeTab" : ""} onClick={() => setCurretIndex(3)}>Payment</button></Col>
+                        </Row>
+                        {/* <Row className='leftModalSide'>
                             <Col sm="12">
                                 <StepProgressBar
                                     startingStep={0}
-                                    onSubmit={onFormSubmit}
+                                    // onSubmit={onFormSubmit}
                                     steps={[
                                         {
                                             label: 'Mobile',
@@ -281,18 +254,53 @@ const AddToCart = ({ cartStatus }) => {
                                         {
                                             label: 'Address',
                                             name: 'step 2',
-                                            content: step2Content,
+                                            content: <Step2Content />,
                                         },
                                         {
                                             label: 'Payment',
                                             name: 'step 3',
-                                            content: step3Content,
+                                            content: <Step3Content />
+                                            ,
                                         },
                                     ]}
                                 />
                             </Col>
-
-                        </Row>
+                        </Row> */}
+                        {
+                            curretIndex === 1 &&
+                            <Row className='leftModalSide'>
+                                <Col className='text-center mt-5'>
+                                    <h5>Enter Mobile Number</h5>
+                                </Col>
+                                <Col xs="12" className='text-center mt-3'>
+                                    <div className='mainCallBar'>
+                                        <input
+                                            type='number'
+                                            placeholder='Enter Number'
+                                            className='phoneNumber'
+                                            value={phoneNumber}
+                                            onChange={(e) => { setPhoneNumber(e.target.value) }}
+                                        />
+                                    </div>
+                                    <div className='code'>
+                                        <h5>+91 |</h5>
+                                    </div>
+                                </Col>
+                                <Col xs="12" className='mt-3 align-items-center'>
+                                    <div className="checkbox-wrapper-12 align-items-center">
+                                        <div className="cbx align-items-center">
+                                            <input id="cbx-12" type="checkbox" className='me-3' /><label htmlFor="cbx-12" /><svg width={15} height={14} viewBox="0 0 15 14" fill="none"><path d="M2 8.36364L6.23077 12L13 2" /></svg><span><h6>Notify me for orders, updates & offers</h6></span>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1"><defs>
+                                            <filter id="goo-12"><feGaussianBlur in="SourceGraphic" stdDeviation={4} result="blur" /><feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7" result="goo-12" /><feBlend in="SourceGraphic" in2="goo-12" /></filter></defs></svg>
+                                    </div>
+                                    <style dangerouslySetInnerHTML={{ __html: ".checkbox-wrapper-12 {\n position: relative;\n}\n" }} />
+                                </Col>
+                                <Row className='nextBtn'>
+                                    <Col className='text-center'><button>Next</button></Col>
+                                </Row>
+                            </Row>
+                        }
                     </Col>
                     <Col sm="4">
                         <Col><h3>LOGO</h3></Col>
