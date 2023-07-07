@@ -37,7 +37,7 @@
 
 #mainModal .modal-content {
     position: relative;
-    height: 80vh !important;
+    /* height: 80vh !important; */
     background-color: #f9f9f9
 }
 
@@ -666,6 +666,46 @@ input.phoneNumber::-webkit-outer-spin-button {
     top: 80% !important;
     bottom: 0 !important;
 }
-.modalLeft{
-background-color: #FFFFFF;
+
+.btnBg {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 10px 0;
+}
+
+.modalLeft {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    height: 60vh;
+}
+
+.modalLeft {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.topModalBar {
+    position: sticky;
+    top: 0;
+    background-color: #FFFFFF !important;
+    z-index: 9999;
+}
+
+.topModalBar1 {
+    position: sticky;
+    top: 10%;
+    background-color: #FFFFFF !important;
+    z-index: 9999;
+}
+
+.accordion-button:focus {
+    outline: none !important;
+    border-color: none !important;
+    box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #FFFFFF !important;
+    box-shadow: none !important;
+    color: #000000 !important;
 }

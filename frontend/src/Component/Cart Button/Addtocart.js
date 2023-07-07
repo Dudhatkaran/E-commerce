@@ -4,7 +4,7 @@ import './cart.css';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Col, Modal, Row } from 'react-bootstrap';
-import { BestSale } from '../../Shared';
+import { BestSale, Images } from '../../Shared';
 import StepProgressBar from 'react-step-progress';
 import 'react-step-progress/dist/index.css';
 import { GrAddCircle } from "react-icons/gr";
@@ -214,10 +214,10 @@ const AddToCart = ({ cartStatus }) => {
                 <Row className='p-1'>
                     <Col sm="8">
                         <div className='modalLeft'>
-                            <Row>
+                            <Row className='topModalBar'>
                                 <Col className='text-center'><h3>HK Creation</h3></Col>
                             </Row>
-                            <Row className="tabButton p-2">
+                            <Row className="tabButton p-2 topModalBar1">
                                 <Col><button className={curretIndex === 1 ? "activeTab" : ""} onClick={() => setCurretIndex(1)}>Mobile</button></Col>
                                 <Col ><button className={curretIndex === 2 ? "activeTab" : ""} onClick={() => setCurretIndex(2)}>Address</button></Col>
                                 <Col><button className={curretIndex === 3 ? "activeTab" : ""} onClick={() => setCurretIndex(3)}>Payment</button></Col>
@@ -283,15 +283,15 @@ const AddToCart = ({ cartStatus }) => {
                             }
                             {
                                 curretIndex === 2 &&
-                                <Row className='leftModalSide'>
+                                <Row className='leftModalSide pe-4'>
                                     <Col className='mt-3' xs="12">
-                                        <p className='ms-5'>Hey! Welcome back +91 99987 60805 </p>
+                                        <p className='ms-2'>Hey! Welcome back +91 99987 60805 </p>
                                     </Col>
                                     <Col xs="12">
-                                        <h5 className='ms-5'>Shipping Address</h5>
+                                        <h5 className='ms-2'>Shipping Address</h5>
                                     </Col>
                                     <Col className='align-items-center' xs="12">
-                                        <div className='ms-5 align-items-center'>
+                                        <div className='ms-2 mt-2 align-items-center'>
                                             <div className='mainAddressBar'>
                                                 <div className='d-flex align-items-center'>
                                                     <input type='radio' className='m-0 mb-0' defaultChecked /><h6 className='ms-1 me-2 mt-1'>Harsh Savaliya</h6><span className='emailSection'><p className="AddressEmail mt-3">harshsavaliya250@gmail.com</p></span>
@@ -303,10 +303,10 @@ const AddToCart = ({ cartStatus }) => {
                                         </div>
                                     </Col>
                                     <Col className='shipping align-items-center' xs="12">
-                                        <h5 className='ms-5 mt-2'>Shipping method <input type='radio' className='m-0 mb-0 me-2' defaultChecked /><span>Free Shipping @ ₹0</span></h5>
+                                        <h5 className='ms-2 mt-2'>Shipping method <input type='radio' className='m-0 mb-0 me-2' defaultChecked /><span>Free Shipping @ ₹0</span></h5>
                                     </Col>
                                     <Col className='mt-3' xs="12">
-                                        <div className='ms-5'>
+                                        <div className='ms-2'>
                                             <GrAddCircle size={30} /> Add New Address
                                         </div>
                                     </Col>
@@ -323,18 +323,24 @@ const AddToCart = ({ cartStatus }) => {
                         </div>
                     </Col>
                     <Col sm="4">
-                        <Col><h3>LOGO</h3></Col>
                         <Row>
                             <Col><div class="accordion" id="accordionExample">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingOne">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            <BsCartCheckFill /> Order Summary
+                                            <BsCartCheckFill className='me-2' /> Order Summary
                                         </button>
                                     </h2>
                                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                            {
+
+                                                Images.map((e) => {
+                                                    if (!Images || Images.length === 0) {
+                                                        return <img src={e.Slider1} />
+                                                    }
+                                                })
+                                            }
                                         </div>
                                     </div>
                                 </div>
@@ -344,7 +350,7 @@ const AddToCart = ({ cartStatus }) => {
                     </Col>
                 </Row >
                 <Row className='nextBtn'>
-                    <Col className='text-center' xs="8"><button onClick={nextHandler}>Next</button></Col>
+                    <Col className='text-center' xs="8"><div className='btnBg'><button onClick={nextHandler}>Next</button></div></Col>
                 </Row>
             </Modal >
         </>
