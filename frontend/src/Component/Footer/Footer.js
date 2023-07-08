@@ -1,88 +1,238 @@
-import React from 'react'
-import style from './Footer.module.css'
-import { Col, Container, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import { FaFacebookF, FaInstagram, FaAmazon } from "react-icons/fa";
-import { SiFlipkart } from "react-icons/si";
+import React from "react";
+import {
+    FaFacebookF,
+    FaInstagramSquare,
+    FaHome,
+    FaPhoneAlt,
+    FaEnvelope,
+    FaAngleRight,
+    FaWhatsapp,
+} from "react-icons/fa";
+import { TbMinusVertical, TbCopyright } from "react-icons/tb";
 
 const Footer = () => {
     return (
-        <footer>
-            <div className={`${style.mainFooter} mt-5`}>
-                <Container fluid className='p-3'>
-                    <div className={`${style.subFooterLine}`}>
-                        <Row>
-                            <Col sm="4" className='m-3'>
-                                <li>Contact Info</li>
-                                <div className={`${style.contactInfo} ms-4 mt-3`}>
-                                    <h6 className='mb-2'>Address :-</h6>
-                                    <p> 110, 1st floor, Abhishek Arcade, Near Dhameliya Brothers, Near kiran chok, Punagam, Surat, Gujarat, Pin Code 395010    Near Dhameliya Brothers, Near kiran chok,    Punagam Surat, Gujarat, 395010
-                                    </p>
+        <>
+            <div className="spacer-b bg-dark">
+                <div className="p-4">
+                    <div className="container">
+                        <div className="row align-items-center">
+                            <div className=" col-3 d-flex align-items-center">
+                                <div className="logo">
+                                    <a>
+                                        LOGO
+                                    </a>
                                 </div>
-                                <div className={`${style.contactInfo} ms-4 mt-3`}>
-                                    <h6 className='mb-3'>Gmail :-</h6>
-                                    <p>goldenbiz.store@gmail.com</p>
+                                {/* <div className='logo'>
+                <a><img src={require('./Images/Company Image/Side logo 1.png')} width={'220px'}></img></a>
+            </div> */}
+                            </div>
+                            <form className="col-6">
+                                <div className="d-flex">
+                                    <div className="submit">
+                                        <input
+                                            type="email"
+                                            required="required"
+                                            placeholder="Your Email address"
+                                        ></input>
+                                    </div>
+                                    <div>
+                                        <button type="submit" className="submit-butn">
+                                            Submit
+                                        </button>
+                                    </div>
                                 </div>
-                                <div className={`${style.contactInfo} ms-4 mt-3`}>
-                                    <h6 className='mb-3'>Phone :-</h6>
-                                    <p>+91 7571852554</p>
+                            </form>
+                            <div className="col-3 d-flex fs-2">
+                                <div className="col text-end whatsapp">
+                                    <a href="https://wa.me/8828380900" className="social_icon" target='_blank'>
+                                        <FaWhatsapp className="text-light overflow-hidden" />
+                                    </a>
                                 </div>
-                            </Col>
-                            <Col className='m-3'>
-                                <li>My Account</li>
-                                <div className={`${style.contactInfo} ms-4 mt-3`}>
-                                    <Row className={`${style.footerContaint}`}>
-                                        <Col xs="12" className='mb-3'><Link to="/">Home</Link></Col>
-                                        <Col xs="12" className='mb-3'><Link to="/Saree">SAREE</Link></Col>
-                                        <Col xs="12" className='mb-3'><Link to="/Gown">GOWN</Link></Col>
-                                        <Col xs="12" className='mb-3'><Link to="/Kurti">KURTI</Link></Col>
-                                    </Row>
+                                <div className="col text-end facebook">
+                                    <a href="https://www.facebook.com/shreesaisurgical" className="social_icon" target='_blank'>
+                                        <FaFacebookF />
+                                    </a>
                                 </div>
-                            </Col>
-                            <Col className='m-3'>
-                                <li>InFormation</li>
-                                <div className={`${style.contactInfo} ms-4 mt-3`}>
-                                    <Row className={`${style.footerContaint}`}>
-                                        <Col xs="12" className='mb-3'><Link to="#">Search</Link></Col>
-                                        <Col xs="12" className='mb-3'><Link to="#">About Us</Link></Col>
-                                        <Col xs="12" className='mb-3'><Link to="#">Blog</Link></Col>
-                                        <Col xs="12" className='mb-3'><Link to="#">Contact us</Link></Col>
-                                    </Row>
+                                <div className="col text-end instagram p-0">
+                                    <a href="https://www.instagram.com/shreesaisurgical/" className="social_icon" target='_blank'>
+                                        <FaInstagramSquare />
+                                    </a>
                                 </div>
-                            </Col>
-                            <Col className='m-3'>
-                                <li>Newsletter</li>
-                                <div className={`${style.contactInfo} ms-4 mt-3`}>
-                                    <Row>
-                                        <Col className='ms-1'>SUBSCRIBE OUR NEWSLETTER</Col>
-                                    </Row>
-                                    <Row className=''>
-                                        <Col className='mt-3'>
-                                            <input type='email' placeholder='Enter Email Here' />
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col className='mt-3'>
-                                            Get Updates For New Launches
-                                        </Col>
-                                    </Row>
-                                    <Row className={`${style.socialIcon} mt-3`}>
-                                        <Col xs="2"><Link to="#"><FaFacebookF size={25} /></Link></Col>
-                                        <Col xs="2"><Link to="#"><FaInstagram size={25} /></Link></Col>
-                                        <Col xs="2"><Link to="#"><FaAmazon size={25} /></Link></Col>
-                                        <Col xs="2"><Link to="#"><SiFlipkart size={25} /></Link></Col>
-                                    </Row>
-                                </div>
-                            </Col>
-                        </Row>
-                        <Row className='mb-4'>
-                            <Col className='ms-4'>© 2023, Leemboodi. All rights reserved.</Col>
-                        </Row>
+                            </div>
+                        </div>
+                        <hr className="text-light"></hr>
+                        <div className="row bg-dark text-light mt-5 mb-5 fields">
+                            <div className="col-3 filds-1   ">
+                                <h5 className="mb-4">Contect Us</h5>
+                                <a className="d-flex mb-3 text-light">
+                                    <div className="me-3">
+                                        <FaHome />
+                                    </div>
+                                    <div>
+                                        1A,Ratna kunj apt, C S road, Near Sanji hotel,Daishar
+                                        (E),mumbai,68.
+                                    </div>
+                                </a>
+                                <a className="d-flex mb-3 text-light">
+                                    <div className="me-3">
+                                        <FaPhoneAlt />
+                                    </div>
+                                    <div>+91 8652369412</div>
+                                </a>
+                                <a className="d-flex text-light">
+                                    <div className="me-3">
+                                        <FaEnvelope />
+                                    </div>
+                                    <div>shreesaisurgical2@Gmail.Com</div>
+                                </a>
+                            </div>
+                            <div className="col-3">
+                                <h5 className="mb-4">Help</h5>
+                                <ul className="m-0 p-0">
+                                    <li className="mb-2">
+                                        <a>
+                                            <FaAngleRight />
+                                            Search
+                                        </a>
+                                    </li>
+                                    <li className="mb-2">
+                                        <a>
+                                            <FaAngleRight />
+                                            Help
+                                        </a>
+                                    </li>
+                                    <li className="mb-2">
+                                        <a>
+                                            <FaAngleRight />
+                                            Information
+                                        </a>
+                                    </li>
+                                    <li className="mb-2">
+                                        <a>
+                                            <FaAngleRight />
+                                            Privacy Policy
+                                        </a>
+                                    </li>
+                                    <li className="mb-2">
+                                        <a>
+                                            <FaAngleRight />
+                                            Shipping Details
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="col-3">
+                                <h5 className="mb-4">Support</h5>
+                                <ul className="m-0 p-0">
+                                    <li className="mb-2">
+                                        <a>
+                                            <FaAngleRight />
+                                            Contect Us
+                                        </a>
+                                    </li>
+                                    <li className="mb-2">
+                                        <a>
+                                            <FaAngleRight />
+                                            About Us
+                                        </a>
+                                    </li>
+                                    <li className="mb-2">
+                                        <a>
+                                            <FaAngleRight />
+                                            Careers
+                                        </a>
+                                    </li>
+                                    <li className="mb-2">
+                                        <a>
+                                            <FaAngleRight />
+                                            Refunds & Returns
+                                        </a>
+                                    </li>
+                                    <li className="mb-2">
+                                        <a>
+                                            <FaAngleRight />
+                                            Deliveries
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="col-3">
+                                <h5 className="mb-4">information</h5>
+                                <ul className="m-0 p-0">
+                                    <li className="mb-2">
+                                        <a>
+                                            <FaAngleRight />
+                                            Advanced Search
+                                        </a>
+                                    </li>
+                                    <li className="mb-2">
+                                        <a>
+                                            <FaAngleRight />
+                                            Search Terms
+                                        </a>
+                                    </li>
+                                    <li className="mb-2">
+                                        <a>
+                                            <FaAngleRight />
+                                            Help & faq's
+                                        </a>
+                                    </li>
+                                    <li className="mb-2">
+                                        <a>
+                                            <FaAngleRight />
+                                            Store location
+                                        </a>
+                                    </li>
+                                    <li className="mb-2">
+                                        <a>
+                                            <FaAngleRight />
+                                            Orders & Returns
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr className="text-light"></hr>
+                        <div className="text-center text-light align-items-center">
+                            <a>
+                                Search <TbMinusVertical />
+                            </a>
+                            <a>
+                                Help <TbMinusVertical />
+                            </a>
+                            <a>
+                                Information <TbMinusVertical />
+                            </a>
+                            <a>Shipping Details</a>
+                        </div>
                     </div>
-                </Container>
+                </div>
+                <div className="copy_write">
+                    <div className="container">
+                        <div className="row text-aligns-center">
+                            <div className="col-6">
+                                <p className="pt-4">
+                                    <TbCopyright /> 2022 Sri Sai Surgical
+                                </p>
+                            </div>
+                            <div className="col-6  d-flex align-items-center">
+                                <div className="col text-end">
+                                    <a href="#"><img src={require('../../Asset/Images/asset 26.png')}></img></a>
+                                </div>
+                                <div className="col text-end">
+                                    <a href="#"><img src={require('../../Asset/Images/asset 27.png')}></img></a>
+                                </div>
+                                <div className="col text-end">
+                                    <a href="#"><img src={require('../../Asset/Images/asset 29.png')}></img></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </footer>
-    )
-}
+        </>
+    );
+};
 
-export default Footer
+export default Footer;

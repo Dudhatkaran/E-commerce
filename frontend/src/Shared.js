@@ -28,6 +28,13 @@ export const ExplorCard = [
     }
 ]
 
+export const ExplorCard1 = [
+    {
+        Image: require("./Asset/Images/ExplorImg1.webp"),
+        Name: "SAREE"
+    },
+]
+
 export const TopItem = [
     {
         Image: require("./Asset/Images/TopKurti.webp"),

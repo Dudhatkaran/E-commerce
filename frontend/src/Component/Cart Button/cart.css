@@ -709,3 +709,7 @@ input.phoneNumber::-webkit-outer-spin-button {
     box-shadow: none !important;
     color: #000000 !important;
 }
+
+.ordeIamge {
+    font-size: 14px;
+}

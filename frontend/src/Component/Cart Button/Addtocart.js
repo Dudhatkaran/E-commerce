@@ -4,7 +4,7 @@ import './cart.css';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Col, Modal, Row } from 'react-bootstrap';
-import { BestSale, Images } from '../../Shared';
+import { BestSale, ExplorCard, ExplorCard1, Images } from '../../Shared';
 import StepProgressBar from 'react-step-progress';
 import 'react-step-progress/dist/index.css';
 import { GrAddCircle } from "react-icons/gr";
@@ -324,7 +324,7 @@ const AddToCart = ({ cartStatus }) => {
                     </Col>
                     <Col sm="4">
                         <Row>
-                            <Col><div class="accordion" id="accordionExample">
+                            <Col xs="12"><div class="accordion" id="accordionExample">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingOne">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -333,14 +333,33 @@ const AddToCart = ({ cartStatus }) => {
                                     </h2>
                                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            {
+                                            <Row className='align-items-center'>
+                                                {
+                                                    ExplorCard1.map((e) => {
+                                                        return (
+                                                            <>
+                                                                <Col xs="3" className='mb-3'><img src={e.Image} width={70} height={80} /></Col>
+                                                                <Col xs="9" className='mb-3'>
+                                                                    <div className='ordeIamge'>Black Kurti with Pant And Dupatta - S</div>
+                                                                    <div className='ordeIamge'>Price: ₹929.00</div>
+                                                                    <div className='ordeIamge'>Quantity: 3</div>
+                                                                </Col>
+                                                            </>
 
-                                                Images.map((e) => {
-                                                    if (!Images || Images.length === 0) {
-                                                        return <img src={e.Slider1} />
-                                                    }
-                                                })
-                                            }
+                                                        )
+                                                    })
+                                                }
+                                            </Row>
+                                            <Row>
+                                                <Col xs="6">Subtotal</Col>
+                                                <Col xs="6" className='text-end'>₹2787.00</Col>
+                                                <Col xs="6" className='mt-2 mb-2'>Shipping</Col>
+                                                <Col xs="6" className='text-end mt-2 mb-2'>Free</Col>
+                                                <Col xs="12"><hr></hr></Col>
+                                                <Col xs="6" className=''><b>To Pay</b></Col>
+                                                <Col xs="6" className='text-end'><b>₹2787.00</b></Col>
+
+                                            </Row>
                                         </div>
                                     </div>
                                 </div>
