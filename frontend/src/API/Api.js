@@ -1,4 +1,4 @@
-let serviceUrl = "http://192.168.0.108:3000";
+let serviceUrl = "http://192.168.0.105:3000";
 
 export const API_URLS = {
     LoginAPI: {
