@@ -13,12 +13,9 @@ import { TbTruckDelivery } from "react-icons/tb";
 
 const AddToCart = ({ cartStatus }) => {
     const [phoneNumber, setPhoneNumber] = useState("")
-
-    const inputRef = useRef(null);
     const [isAdded, setIsAdded] = useState(false);
     const [show, setShow] = useState(false);
     const [quantity, setQuantity] = useState(1);
-    const buttonRef = useRef(null);
     const [modalShow, setModalShow] = useState(false);
     const [curretIndex, setCurretIndex] = useState(1)
 
