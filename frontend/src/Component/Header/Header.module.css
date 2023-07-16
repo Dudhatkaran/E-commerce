@@ -15,17 +15,27 @@
 }
 
 #Header {
-    background-color: #778899;
+    background-color: #000000;
+    color: #FFFFFF;
 }
 
 #Header ul li a {
     border-radius: var(--Header--Border-Radius--);
 }
 
-#Header ul li a:hover {
+#Header ul li .active {
     padding: 10px 30px;
     background-color: var(--Header-Font--) !important;
     color: var(--Header-Hover-Font--) !important;
+    border-radius: var(--Header--Border-Radius--);
+    border: 2px solid black !important;
+}
+
+#Header ul li:hover .borderHover {
+    padding: 10px 30px;
+    border: 2px solid var(--Header-Font--) !important;
+    background-color: inherit !important;
+    color: var(--Header-Font--) !important;
     border-radius: var(--Header--Border-Radius--);
 }
 

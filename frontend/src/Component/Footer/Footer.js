@@ -1,239 +1,135 @@
 import React from "react";
-import {
-  FaFacebookF,
-  FaInstagramSquare,
-  FaHome,
-  FaPhoneAlt,
-  FaEnvelope,
-  FaAngleRight,
-  FaWhatsapp,
-} from "react-icons/fa";
 import { TbMinusVertical, TbCopyright } from "react-icons/tb";
+import './Footer.css'
+import { FaMapMarkerAlt, FaPhoneAlt, FaTelegram, FaFacebookF, FaWhatsapp, FaInstagram, FaTelegramPlane } from 'react-icons/fa';
+import { BsEnvelopeOpen } from 'react-icons/bs';
+
 
 const Footer = () => {
   return (
     <>
-      <div className="spacer-b bg-dark">
-        <div className="p-4">
-          <div className="container">
+      <footer className="footer-section">
+        <div className="container-fluid p-5">
+          <div className="footer-cta">
             <div className="row align-items-center">
-              <div className=" col-3 d-flex align-items-center">
-                <div className="logo">
-                  <a>
-                    {/* <img
-                      src={require("./Images/Company Image/Logo 1.png")}
-                      width={"100px"}
-                    ></img> */}
-                  </a>
-                </div>
-                {/* <div className='logo'>
-                <a><img src={require('./Images/Company Image/Side logo 1.png')} width={'220px'}></img></a>
-            </div> */}
-              </div>
-              <form className="col-6">
-                <div className="d-flex">
-                  <div className="submit">
-                    <input
-                      type="email"
-                      required="required"
-                      placeholder="Your Email address"
-                    ></input>
-                  </div>
+              <div className="col-xl-4 col-md-4 mb-30">
+                <div className="single-cta align-items-center d-flex">
                   <div>
-                    <button type="submit" className="submit-butn">
-                      Submit
-                    </button>
+                    <FaMapMarkerAlt className="map" size={30} />
+                  </div>
+                  <div className="cta-text">
+                    <h4>Find us</h4>
+                    <span>Akshya Nagar 1st Block 1st Cross, Rammurthy nagar, Bangalore-560016 </span>
                   </div>
                 </div>
-              </form>
-              <div className="col-3 d-flex fs-2">
-                <div className="col text-end whatsapp">
-                  <a href="https://wa.me/8828380900" className="social_icon" target='_blank'>
-                    <FaWhatsapp className="text-light overflow-hidden" />
-                  </a>
+              </div>
+              <div className="col-xl-4 col-md-4 mb-30">
+                <div className="single-cta d-flex align-items-center">
+                  <div>
+                    <FaPhoneAlt className="call" size={25} />
+                  </div>
+                  <i className="fas fa-phone" />
+                  <div className="cta-text">
+                    <h4>Call us</h4>
+                    <span>+91 1234567890</span>
+                  </div>
                 </div>
-                <div className="col text-end facebook">
-                  <a href="https://www.facebook.com/shreesaisurgical" className="social_icon" target='_blank'>
-                    <FaFacebookF />
-                  </a>
-                </div>
-                <div className="col text-end instagram p-0">
-                  <a href="https://www.instagram.com/shreesaisurgical/" className="social_icon" target='_blank'>
-                    <FaInstagramSquare />
-                  </a>
+              </div>
+              <div className="col-xl-4 col-md-4 mb-30">
+                <div className="single-cta d-flex align-items-center">
+                  <div>
+                    <BsEnvelopeOpen className="envelop" size={30} />
+                  </div>
+                  <div className="cta-text">
+                    <h4>Mail us</h4>
+                    <span>contact@gmail.com</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <hr className="text-light"></hr>
-            <div className="row bg-dark text-light mt-5 mb-5 fields">
-              <div className="col-3 filds-1   ">
-                <h5 className="mb-4">Contect Us</h5>
-                <a className="d-flex mb-3 text-light">
-                  <div className="me-3">
-                    <FaHome />
+          </div>
+          <div className="footer-content pt-5 pb-1">
+            <div className="row">
+              <div className="col-xl-4 col-lg-4 mb-50">
+                <div className="footer-widget">
+                  <div className="footer-logo">
+                    <a href="index.html"><img src="assets/images/logo.png" className="img-fluid" alt="logo" /></a>
                   </div>
-                  <div>
-                    1A,Ratna kunj apt, C S road, Near Sanji hotel,Daishar
-                    (E),mumbai,68.
+                  <div className="footer-text">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
                   </div>
-                </a>
-                <a className="d-flex mb-3 text-light">
-                  <div className="me-3">
-                    <FaPhoneAlt />
+                  <div className="footer-social-icon">
+                    <span>Follow us</span>
+                    <ul className="social_icon mb-2">
+                      <li><a href="#"><FaFacebookF className="faceBook" size={25} /></a></li>
+                      <li><a href="#"><FaWhatsapp className="faceBook" size={25} /></a></li>
+                      <li><a href="#"><FaInstagram className="faceBook" size={25} /></a></li>
+                      <li><a href="#"><FaTelegramPlane className="faceBook" size={25} /></a></li>
+                    </ul>
                   </div>
-                  <div>+91 8652369412</div>
-                </a>
-                <a className="d-flex text-light">
-                  <div className="me-3">
-                    <FaEnvelope />
+                </div>
+              </div>
+              <div className="col-xl-4 col-lg-4 col-md-6 mb-30">
+                <div className="footer-widget">
+                  <div className="footer-widget-heading">
+                    <h3>Useful Links</h3>
                   </div>
-                  <div>shreesaisurgical2@Gmail.Com</div>
-                </a>
+                  <ul>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Gallery</a></li>
+                    <li><a href="#">Selection Process</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Sponsorship</a></li>
+                    <li><a href="#">Our Policies</a></li>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">Contact us</a></li>
+                  </ul>
+                </div>
               </div>
-              <div className="col-3">
-                <h5 className="mb-4">Help</h5>
-                <ul className="m-0 p-0">
-                  <li className="mb-2">
-                    <a>
-                      <FaAngleRight />
-                      Search
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a>
-                      <FaAngleRight />
-                      Help
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a>
-                      <FaAngleRight />
-                      Information
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a>
-                      <FaAngleRight />
-                      Privacy Policy
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a>
-                      <FaAngleRight />
-                      Shipping Details
-                    </a>
-                  </li>
-                </ul>
+              <div className="col-xl-4 col-lg-4 col-md-6 mb-50">
+                <div className="footer-widget">
+                  <div className="footer-widget-heading">
+                    <h3>Subscribe</h3>
+                  </div>
+                  <div className="footer-text mb-25">
+                    <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                  </div>
+                  <div className="subscribe-form">
+                    <form action="#">
+                      <input type="text" placeholder="Email Address" />
+                      <button><FaTelegram className="tele" size={30} /></button>
+                    </form>
+                  </div>
+                </div>
               </div>
-              <div className="col-3">
-                <h5 className="mb-4">Support</h5>
-                <ul className="m-0 p-0">
-                  <li className="mb-2">
-                    <a>
-                      <FaAngleRight />
-                      Contect Us
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a>
-                      <FaAngleRight />
-                      About Us
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a>
-                      <FaAngleRight />
-                      Careers
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a>
-                      <FaAngleRight />
-                      Refunds & Returns
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a>
-                      <FaAngleRight />
-                      Deliveries
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="col-3">
-                <h5 className="mb-4">information</h5>
-                <ul className="m-0 p-0">
-                  <li className="mb-2">
-                    <a>
-                      <FaAngleRight />
-                      Advanced Search
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a>
-                      <FaAngleRight />
-                      Search Terms
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a>
-                      <FaAngleRight />
-                      Help & faq's
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a>
-                      <FaAngleRight />
-                      Store location
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a>
-                      <FaAngleRight />
-                      Orders & Returns
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <hr className="text-light"></hr>
-            <div className="text-center text-light align-items-center">
-              <a>
-                Search <TbMinusVertical />
-              </a>
-              <a>
-                Help <TbMinusVertical />
-              </a>
-              <a>
-                Information <TbMinusVertical />
-              </a>
-              <a>Shipping Details</a>
             </div>
           </div>
         </div>
-        <div className="copy_write">
+        <div className="copyright-area">
           <div className="container">
-            <div className="row text-aligns-center">
-              <div className="col-6">
-                <p className="pt-4">
-                  <TbCopyright /> 2022 Sri Sai Surgical
-                </p>
+            <div className="row">
+              <div className="col-xl-6 col-lg-6 text-center text-lg-left">
+                <div className="copyright-text">
+                  <p>Copyright © 2023, All Right Reserved <a href="#">Soumitra Ghosh</a></p>
+                </div>
               </div>
-              <div className="col-6 d-flex align-items-center">
-                {/* <div className="col text-end">
-                  <a href="#"><img src={require('./Images/asset 26.png')}></img></a>
-                </div>  
-               <div className="col text-end">
-                  <a href="#"><img src={require('./Images/asset 27.png')}></img></a>
-                </div>  
-               <div className="col text-end">
-                  <a href="#"><img src={require('./Images/asset 29.png')}></img></a>
-                </div>   */}
+              <div className="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+                <div className="footer-menu">
+                  <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Policy</a></li>
+                    <li><a href="#">Contact</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </footer>
+
     </>
   );
 };

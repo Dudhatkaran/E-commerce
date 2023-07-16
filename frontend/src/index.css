@@ -1,6 +1,10 @@
 body {
     font-family: "Hind Vadodara";
     font-size: 500;
-    /* background-color: #778899 !important; */
-    /* color: #FFFFFF !important; */
+    /* background-image: url('./Asset/Images/HKVW.gif'); */
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
 }
