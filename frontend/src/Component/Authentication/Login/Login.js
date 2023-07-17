@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import './Login.css';
 import axios from 'axios';
 import { API_URLS } from '../../../API/Api';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import intlTelInput from 'intl-tel-input';
 import IntlTelInput from 'react-intl-tel-input';
 import 'react-intl-tel-input/dist/main.css';
@@ -24,8 +24,8 @@ const Login = () => {
     // const [role, setRole] = useState("")
     const [phone, setPhone] = useState("")
     const [admin, setAdmin] = useState("")
-    const [user, setUser] = useState("User")
-    const [role, setRole] = useState("")
+    const [user, setUser] = useState("")
+    const [role, setRole] = useState("User")
 
     const refFn = () => {
         setName("")
@@ -107,17 +107,6 @@ const Login = () => {
 
 
     useEffect(() => {
-        const sign_in_btn = document.querySelector("#sign-in-btn");
-        const sign_up_btn = document.querySelector("#sign-up-btn");
-        const container = document.querySelector(".container");
-
-        sign_up_btn.addEventListener("click", () => {
-            container.classList.add("sign-up-mode");
-        });
-
-        sign_in_btn.addEventListener("click", () => {
-            container.classList.remove("sign-up-mode");
-        });
     }, [])
 
     const roleCheck = (e) => {
@@ -126,109 +115,43 @@ const Login = () => {
 
     return (
         <>
-            {/* <Container> */}
             <div id='Login'>
-                <div className="container" >
-                    <div className="forms-container">
-                        <div className="signin-signup">
-                            <form action="#" className="sign-in-form">
-                                <h2 className="title">Sign in</h2>
-                                <Row className='justify-content-center align-items-center'>
-                                    <Col xl="6">
-                                        <Input label="Username" value={name} onChange={(e) => setName(e.target.value)} />
-                                    </Col>
-                                    <Col>
-                                        <Input label="Password" value={password} onChange={(e) => setPassword(e.target.value)} onKeyPress={handleKeyPress} />
-                                    </Col>
-                                </Row>
-                                <nav>
-                                    <ul onClick={signIn} >
-                                        <li>
-                                            Sign In
-                                            <span></span><span></span><span></span><span></span>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </form>
-
-
-
-                            <form className="sign-up-form">
-                                <h2 className="title">Sign up</h2>
-                                <Row>
-                                    <Col>
-                                        <FormControl>
-                                            <RadioGroup row aria-labelledby="demo-row-radio-buttons-group-label" name="row-radio-buttons-group">
-                                                <Radiobutton label="Admin" value="Admin" onChange={e => roleCheck(e.target.value)} />
-                                                <Radiobutton label="User" value="User" onChange={e => roleCheck(e.target.value)} />
-                                            </RadioGroup>
-                                        </FormControl>
-                                    </Col>
-                                </Row>
-                                <Row className='justify-content-center align-items-center'>
-                                    <Col xl="6">
-                                        <Input label="Username" value={name} onChange={(e) => setName(e.target.value)} />
-                                    </Col>
-                                    <Col>
-                                        <Input label="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                                    </Col>
-                                    <Col>
-                                        <Input label="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                                    </Col>
-                                    <Col>
-                                        <Input label="Phone Number" value={phone} onChange={(e) => setPhone(e.target.value)} />
-                                    </Col>
-                                    {/* <Col>
-                                    <IntlTelInput
-                                        type="number"
-                                        id="outlined-basic"
-                                        variant="outlined"
-                                        value={phone}
-                                        onChange={e => setPhone(e.target.value)}
-                                        containerClassName="intl-tel-input"
-                                        inputClassName="form-control"
-                                        preferredCountries={['in']}
-                                        separateDialCode={true}
-                                    />
-                                </Col> */}
-                                </Row>
-                                <nav>
-                                    <ul onClick={singUp} >
-                                        <li>
-                                            Sign UP
-                                            <span></span><span></span><span></span><span></span>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </form>
-                        </div>
-                    </div>
-                    <div className="panels-container">
-                        <div className="panel left-panel">
+                <div>
+                    <meta charSet="UTF-8" />
+                    <title>CodePen - Animated Login Form using Html &amp; CSS Only</title>
+                    <link rel="stylesheet" href="./style.css" />
+                    <section> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span /> <span />
+                        <div className="signin">
                             <div className="content">
-                                <h3>New here ?</h3>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-                                    ex ratione. Aliquid!
-                                </p>
-                                <button className="btn transparent" id="sign-up-btn" >
-                                    Sign up
-                                </button>
+                                <h2>Sign In</h2>
+                                <div className="form">
+                                    <div className="wrapper">
+                                        <input type="radio" name="select" id="option-1" required checked={role === "Admin"} value="Admin" onChange={e => roleCheck(e.target.value)} className='me-1' />
+                                        <input type="radio" name="select" id="option-2" required checked={role === "User"} value="User" onChange={e => roleCheck(e.target.value)} />
+                                        <label htmlFor="option-1" className="option option-1">
+                                            <div className="dot" />
+                                            <h6 className='mt-2'>Admin</h6>
+                                        </label>
+                                        <label htmlFor="option-2" className="option option-2">
+                                            <div className="dot" />
+                                            <h6 className='mt-2'>User</h6>
+                                        </label>
+                                    </div>
+                                    <div className="inputBox">
+                                        <input type="text" required value={name} onChange={(e) => setName(e.target.value)} /> <i>Username</i>
+                                    </div>
+                                    <div className="inputBox">
+                                        <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} onKeyPress={handleKeyPress} /> <i>Password</i>
+                                    </div>
+                                    <div className="links"> <a href="#">Forgot Password ?</a> <Link to="/login">Signup</Link>
+                                    </div>
+                                    <div className="inputBox">
+                                        <input type="submit" defaultValue="Login" onClick={signIn} />
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="panel right-panel">
-                            <div className="content">
-                                <h3>Already a signup?</h3>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-                                    ex ratione. Aliquid!
-                                </p>
-                                <button className="btn transparent mt-2" id="sign-in-btn">
-                                    Sign in
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    </section>
                 </div>
 
                 <ToastContainer

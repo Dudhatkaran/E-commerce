@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import '../../Asset/Css/App.css'
 
 const Header = () => {
-    const [index, setIndex] = useState(1)
+    const [index, setIndex] = useState(null)
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary justify-content-center text-center" id={`${style.Header}`}>
             <div className="container-fluid justify-content-center align-items-center py-2">
@@ -30,9 +30,9 @@ const Header = () => {
                             <div className="dropdown">
                                 <FaUser color="#FFFFFF" />
                                 <div className="dropdown-content fade-in">
-                                    <a href="#">My Account</a>
-                                    <a href="#">Sign In</a>
-                                    <a href="#">Sign Up</a>
+                                    <Link to="/">My Account</Link>
+                                    <Link to="/login">Sign In</Link>
+                                    <Link to="/login">Sign Up</Link>
                                 </div>
                             </div>
 
