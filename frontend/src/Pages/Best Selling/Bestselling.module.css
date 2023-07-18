@@ -10,3 +10,56 @@
     color: green;
     font-weight: bold
 }
+
+.mainCard * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+}
+
+.mainCard {
+    position: relative !important;
+}
+
+.mainCard:hover img {
+    opacity: 0.8;
+}
+
+.mainCard img {
+    position: relative !important;
+    max-width: 100%;
+    vertical-align: top;
+    -webkit-transition: opacity 0.35s;
+    transition: opacity 0.35s
+}
+
+.mainCard .addToCart {
+    position: absolute;
+    bottom: 80px;
+    -webkit-transform: translateY(100%);
+    transform: translateY(-100%);
+    transform: translateX(-50%);
+    font-size: 0.8em;
+    width: 60%;
+    color: #000000 !important;
+    line-height: 46px;
+    letter-spacing: 1.5px;
+    background-color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 10px;
+    border: 1px solid #000000;
+}
+
+.mainCard .addToCart:hover {
+    background: #000000;
+    color: #ffffff !important;
+}
+
+.mainCard.hover .addToCart {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+}

@@ -81,7 +81,7 @@ const Login = () => {
             toast.error("Password is required");
         }
         else {
-            await axios.post("http://192.168.0.103:3000/User/Login", { name, password })
+            await axios.post("http://192.168.0.106:3000/User/Login", { name, password })
                 .then(res => {
                     const data = res.data.data;
                     if (data._id != "" && res.data.status === true) {
@@ -143,7 +143,7 @@ const Login = () => {
                                     <div className="inputBox">
                                         <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} onKeyPress={handleKeyPress} /> <i>Password</i>
                                     </div>
-                                    <div className="links"> <a href="#">Forgot Password ?</a> <Link to="/login">Signup</Link>
+                                    <div className="links"> <a href="#">Forgot Password ?</a> <Link to="/Register">Signup</Link>
                                     </div>
                                     <div className="inputBox">
                                         <input type="submit" defaultValue="Login" onClick={signIn} />

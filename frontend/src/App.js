@@ -13,6 +13,7 @@ import Kurti from './Pages/Kurti/Kurti';
 import Gown from './Pages/Gown/Gown';
 import Viewproduct from './Component/View Product/Viewproduct';
 import Addcart from './Component/Add to Cart/Addcart';
+import SignUp from './Component/Authentication/Login/SignUp';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <>
           <Route path="/*" element={<Home />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/Register" element={<SignUp />} />
           <Route path="/Category1" element={<Category1 />} />
           <Route path="/Category2" element={<Category2 />} />
           <Route path="/Category3" element={<Category3 />} />

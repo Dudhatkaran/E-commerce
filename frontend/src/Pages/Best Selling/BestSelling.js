@@ -20,13 +20,16 @@ const BestSelling = () => {
                             const savePrice = mainPrice - salePrice;
                             return (
                                 <Col sm="3">
-                                    <img src={sale.Image} width="100%" height="500px" />
-                                    <div className='text-center'>
-                                        <h6 className='text-truncate'>{sale.Details}</h6>
-                                        <div className='d-flex'>
-                                            <p className={`${style1.mainPrice} me-2 `}>Rs.{sale.MainPrice}</p>
-                                            <p className='me-2'>Rs.{sale.SalePrice}</p>
-                                            <p className={`${style1.savePrice}`}>Save Rs.{savePrice}</p>
+                                    <div className={`${style1.mainCard}`}>
+                                        <img src={sale.Image} width="100%" height="500px" />
+                                        <div className='text-center'>
+                                            <h6 className='text-truncate'>{sale.Details}</h6>
+                                            <div className='d-flex'>
+                                                <p className={`${style1.mainPrice} me-2 `}>Rs.{sale.MainPrice}</p>
+                                                <p className='me-2'>Rs.{sale.SalePrice}</p>
+                                                <p className={`${style1.savePrice}`}>Save Rs.{savePrice}</p>
+                                            </div>
+                                            <a href="#" className={`${style1.addToCart}`}>Add to Cart</a>
                                         </div>
                                     </div>
                                 </Col>
@@ -36,7 +39,7 @@ const BestSelling = () => {
 
                 </Row>
             </Container>
-        </section>
+        </section >
     )
 }
 
