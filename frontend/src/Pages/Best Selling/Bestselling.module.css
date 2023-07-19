@@ -39,7 +39,7 @@
     bottom: 80px;
     -webkit-transform: translateY(100%);
     transform: translateY(-100%);
-    transform: translateX(-50%);
+    transform: translateX(25%);
     font-size: 0.8em;
     width: 60%;
     color: #000000 !important;
@@ -51,6 +51,7 @@
     text-transform: uppercase;
     border-radius: 10px;
     border: 1px solid #000000;
+    transition: .8s;
 }
 
 .mainCard .addToCart:hover {
@@ -58,8 +59,16 @@
     color: #ffffff !important;
 }
 
+.mainCard:hover .addToCart {
+    display: block;
+}
+
 .mainCard.hover .addToCart {
     -webkit-transform: translateY(0);
     transform: translateY(0);
     opacity: 1;
+}
+
+.addToCart {
+    display: none;
 }

@@ -55,3 +55,16 @@
     color: green;
     font-weight: bold
 }
+
+
+
+@media screen and (min-width:992px) and (max-width:1400px) {
+    .productHeading h6 {
+        font-size: 14px !important;
+        margin-top: 5px;
+    }
+
+    .priceSection {
+        font-size: 13px !important;
+    }
+}

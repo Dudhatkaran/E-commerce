@@ -10,6 +10,7 @@ import style from "./Saree.module.css";
 import { HiOutlineViewGrid } from "react-icons/hi";
 import { BsGrid3X2GapFill } from "react-icons/bs";
 import { TfiLayoutGrid4Alt, TfiLayoutGrid3Alt, TfiLayoutGrid2Alt } from "react-icons/tfi";
+import Filter from '../../Component/ProductFilter/Filter'
 
 const Saree = () => {
     const [twoGrid, setTwoGrid] = useState(false)
@@ -51,14 +52,21 @@ const Saree = () => {
                     </Col>
                 </Row>
                 <Row className='text-center'>
-                    {
-                        SareeDetails.map((card) => {
-                            const mainPrice = parseFloat(card.MainPrice);
-                            const salePrice = parseFloat(card.SalePrice);
-                            const savePrice = mainPrice - salePrice;
-                            return <Col sm={twoGrid ? "6" : (threeGrid ? "4" : "3")} className='mb-5 text-center  '><Productcard Img={card.Image} name={card.productName} producDetails={card.productDetails} MainPrice={mainPrice} SalePrice={salePrice} SavePrice={savePrice} grid2={twoGrid} grid3={threeGrid} grid4={fourGrid} /></Col>
-                        })
-                    }
+                    <Col lg="4" className='text-start'>
+                        <Filter />
+                    </Col>
+                    <Col lg="8">
+                        <Row>
+                            {
+                                SareeDetails.map((card) => {
+                                    const mainPrice = parseFloat(card.MainPrice);
+                                    const salePrice = parseFloat(card.SalePrice);
+                                    const savePrice = mainPrice - salePrice;
+                                    return <Col sm={twoGrid ? "6" : (threeGrid ? "4" : "3")} className='mb-5 text-center  '><Productcard Img={card.Image} name={card.productName} producDetails={card.productDetails} MainPrice={mainPrice} SalePrice={salePrice} SavePrice={savePrice} grid2={twoGrid} grid3={threeGrid} grid4={fourGrid} /></Col>
+                                })
+                            }
+                        </Row>
+                    </Col>
                 </Row>
             </Container>
             <Footer />

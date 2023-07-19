@@ -2,8 +2,14 @@ import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { BestSale } from '../../Shared'
 import style1 from './Bestselling.module.css'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const BestSelling = () => {
+
+    const addToCart = () => {
+        toast.success("Product Add to Cart Successfully")
+    }
     return (
         <section id={`${style1.BestSale}`}>
             <Container fluid>
@@ -29,7 +35,7 @@ const BestSelling = () => {
                                                 <p className='me-2'>Rs.{sale.SalePrice}</p>
                                                 <p className={`${style1.savePrice}`}>Save Rs.{savePrice}</p>
                                             </div>
-                                            <a href="#" className={`${style1.addToCart}`}>Add to Cart</a>
+                                            <a className={`${style1.addToCart}`} onClick={addToCart}>Add to Cart</a>
                                         </div>
                                     </div>
                                 </Col>
@@ -38,6 +44,19 @@ const BestSelling = () => {
                     }
 
                 </Row>
+                <ToastContainer
+                    position="bottom-left"
+                    autoClose={2000}
+                    hideProgressBar={true}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                    style={{ fontSize: "14px" }}
+                />
             </Container>
         </section >
     )

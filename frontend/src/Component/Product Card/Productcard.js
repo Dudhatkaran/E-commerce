@@ -6,7 +6,7 @@ const Productcard = ({ Img, MainPrice, producDetails, SalePrice, SavePrice, grid
     return (
         <div fluid id={`${style.Saree}`}>
             <div className={`${style.mainCard}`}>
-                <img src={Img} width="100%" height={grid2 ? "700px" : (grid3 ? "500px" : "400px")} />
+                <img src={Img} width="100%" height={grid2 ? "500px" : (grid3 ? "500px" : "300px")} />
                 <div className={`${style.overlay}`}>
                     <div className={`${style.text}`}>
                         <h6>Sale</h6>
@@ -14,11 +14,11 @@ const Productcard = ({ Img, MainPrice, producDetails, SalePrice, SavePrice, grid
                 </div>
             </div>
             <Row className='text-center'>
-                <Col><h6>{producDetails}</h6></Col>
+                <Col className={`${style.productHeading}`}><h6>{producDetails}</h6></Col>
             </Row>
             <Row className='text-center'>
                 <Col>
-                    <div className='d-flex'>
+                    <div className={`${style.priceSection} d-flex`}>
                         <p className={`${style.mainPrice} me-2`}>{MainPrice && "Rs."}{MainPrice}</p>
                         <p className='me-2'>{SalePrice && "Rs."}{SalePrice}</p>
                         <p className={`${style.savePrice}`}>{SavePrice && "Save Rs."}{SavePrice}</p>
